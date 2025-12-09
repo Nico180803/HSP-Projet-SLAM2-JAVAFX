@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>appli.hsp_slam_jfx/appli.hsp_slam_jfx.main.HelloApplication</mainClass>
+                            <mainClass>appli.hsp_slam_jfx/appli.main.HelloApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
