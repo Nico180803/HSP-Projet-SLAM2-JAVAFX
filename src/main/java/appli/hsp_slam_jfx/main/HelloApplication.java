@@ -1,4 +1,4 @@
-package appli.hsp_slam_jfx;
+package appli.hsp_slam_jfx.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

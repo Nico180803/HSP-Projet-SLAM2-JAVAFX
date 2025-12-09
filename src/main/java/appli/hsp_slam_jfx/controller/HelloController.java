@@ -1,4 +1,4 @@
-package appli.hsp_slam_jfx;
+package appli.hsp_slam_jfx.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
