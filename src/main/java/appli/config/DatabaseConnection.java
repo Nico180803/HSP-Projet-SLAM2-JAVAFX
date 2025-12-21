@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    public static void getConnexion() {
+    public static Connection getConnexion() {
         Connection cnx = null;
         try {
             cnx = DriverManager.getConnection(
@@ -18,6 +18,7 @@ public class DatabaseConnection {
         } catch (SQLException e) {
             System.out.println("Erreur de connexion : " + e.getMessage());
         }
+        return cnx;
     }
 }
 
