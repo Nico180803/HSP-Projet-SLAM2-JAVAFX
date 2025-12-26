@@ -1,9 +1,10 @@
 package appli.dao;
 
-import java.sql.SQLException;
+
 import java.util.List;
 
 public interface GenericDAO <T> {
+
     List<T> getAll();
     T getById(int id);
     void insert(T t);
