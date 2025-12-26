@@ -1,34 +1,34 @@
-package appli.dao.principal;
+package appli.dao.principal.jdbc;
 
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
-import appli.model.principal.FichePatient;
+import appli.model.principal.Chambre;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class FichePatientDAO implements GenericDAO<FichePatient> {
+public class ChambreDAO implements GenericDAO<Chambre> {
 
     private final Connection db = DatabaseConnection.getMainConnexion();
     private String sql;
 
-    private static final String TABLE = "fiche_patient";
+    private static final String TABLE = "chambre";
 
 
     @Override
-    public List<FichePatient> getAll() {
+    public List<Chambre> getAll() {
         return List.of();
     }
 
     @Override
-    public FichePatient getById(int id) {
+    public Chambre getById(int id) {
         return null;
     }
 
     @Override
-    public void insert(FichePatient FichePatient) {
+    public void insert(Chambre chambre) {
         this.sql = "INSERT INTO 'table' () VALUES ()";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
@@ -52,7 +52,7 @@ public class FichePatientDAO implements GenericDAO<FichePatient> {
     }
 
     @Override
-    public void update(FichePatient toUpdate) {
+    public void update(Chambre toUpdate) {
 
     }
 }

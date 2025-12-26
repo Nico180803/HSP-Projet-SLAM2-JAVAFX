@@ -1,34 +1,34 @@
-package appli.dao.principal;
+package appli.dao.principal.jdbc;
 
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
-import appli.model.principal.Chambre;
+import appli.model.principal.DossierPriseEnCharge;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ChambreDAO implements GenericDAO<Chambre> {
+public class DossierPriseEnChargeDAO implements GenericDAO<DossierPriseEnCharge> {
 
     private final Connection db = DatabaseConnection.getMainConnexion();
     private String sql;
 
-    private static final String TABLE = "chambre";
+    private static final String TABLE = "dossier_prise_en_charge";
 
 
     @Override
-    public List<Chambre> getAll() {
+    public List<DossierPriseEnCharge> getAll() {
         return List.of();
     }
 
     @Override
-    public Chambre getById(int id) {
+    public DossierPriseEnCharge getById(int id) {
         return null;
     }
 
     @Override
-    public void insert(Chambre chambre) {
+    public void insert(DossierPriseEnCharge dossierPriseEnCharge) {
         this.sql = "INSERT INTO 'table' () VALUES ()";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
@@ -52,7 +52,7 @@ public class ChambreDAO implements GenericDAO<Chambre> {
     }
 
     @Override
-    public void update(Chambre toUpdate) {
+    public void update(DossierPriseEnCharge toUpdate) {
 
     }
 }

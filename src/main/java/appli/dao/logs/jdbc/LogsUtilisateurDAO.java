@@ -1,4 +1,4 @@
-package appli.dao.logs;
+package appli.dao.logs.jdbc;
 
 public class LogsUtilisateurDAO {
 }

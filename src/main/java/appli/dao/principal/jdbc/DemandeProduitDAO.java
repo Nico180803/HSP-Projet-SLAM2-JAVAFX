@@ -1,4 +1,4 @@
-package appli.dao.principal;
+package appli.dao.principal.jdbc;
 
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;

@@ -1,9 +1,8 @@
-package appli.dao.principal;
+package appli.dao.principal.jdbc;
 
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
-import appli.model.principal.Produit;
 import appli.model.principal.ProduitFournisseur;
 
 import java.sql.Connection;

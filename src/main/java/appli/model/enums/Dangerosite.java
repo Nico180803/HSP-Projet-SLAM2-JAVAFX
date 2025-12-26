@@ -17,7 +17,7 @@ public enum Dangerosite {
         return niveau;
     }
 
-    public Dangerosite fromSql(String niveau) {
+    public static Dangerosite fromSql(String niveau) {
         for (Dangerosite g : Dangerosite.values()) {
             if (g.niveau.equals(niveau)) {
                 return g;

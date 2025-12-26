@@ -1,9 +1,9 @@
 package appli.factory;
 
-import appli.dao.logs.LogsUtilisateurDAO;
-import appli.dao.logs.TableCibleDAO;
-import appli.dao.logs.TypeActionDAO;
-import appli.dao.principal.*;
+import appli.dao.logs.jdbc.LogsUtilisateurDAO;
+import appli.dao.logs.jdbc.TableCibleDAO;
+import appli.dao.logs.jdbc.TypeActionDAO;
+import appli.dao.principal.jdbc.*;
 
 public class DaoFactory {
 

@@ -1,34 +1,34 @@
-package appli.dao.principal;
+package appli.dao.principal.jdbc;
 
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
-import appli.model.principal.Hospitalisation;
+import appli.model.principal.Fournisseur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class HospitalisationDAO implements GenericDAO<Hospitalisation> {
+public class FournisseurDAO implements GenericDAO<Fournisseur> {
 
     private final Connection db = DatabaseConnection.getMainConnexion();
     private String sql;
 
-    private static final String TABLE = "hospitalisation";
+    private static final String TABLE = "fournisseur";
 
 
     @Override
-    public List<Hospitalisation> getAll() {
+    public List<Fournisseur> getAll() {
         return List.of();
     }
 
     @Override
-    public Hospitalisation getById(int id) {
+    public Fournisseur getById(int id) {
         return null;
     }
 
     @Override
-    public void insert(Hospitalisation Hospitalisation) {
+    public void insert(Fournisseur Fournisseur) {
         this.sql = "INSERT INTO 'table' () VALUES ()";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
@@ -52,7 +52,7 @@ public class HospitalisationDAO implements GenericDAO<Hospitalisation> {
     }
 
     @Override
-    public void update(Hospitalisation toUpdate) {
+    public void update(Fournisseur toUpdate) {
 
     }
 }
