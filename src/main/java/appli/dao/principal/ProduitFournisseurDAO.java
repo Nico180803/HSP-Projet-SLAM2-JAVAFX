@@ -3,6 +3,7 @@ package appli.dao.principal;
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
+import appli.model.principal.Produit;
 import appli.model.principal.ProduitFournisseur;
 
 import java.sql.Connection;
@@ -75,9 +76,8 @@ public class ProduitFournisseurDAO implements GenericDAO<ProduitFournisseur> {
         this.sql = "INSERT INTO "+ TABLE+" ("+REF_PRODUIT+","+REF_FOURNISSEUR+","+PRIX+") VALUES (?,?,?)";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
-            statement.setInt(1,produitFournisseur.getProduit().getId());
-            statement.setInt(2,produitFournisseur.getFournisseur().getId());
-            statement.setDouble(3,produitFournisseur.getPrix());
+            mappingBdd(produitFournisseur, statement);
+
 
             statement.executeUpdate();
             System.out.println("Ajout du produitFournisseur effectué");
@@ -109,9 +109,8 @@ public class ProduitFournisseurDAO implements GenericDAO<ProduitFournisseur> {
 
         try (PreparedStatement statement = db.prepareStatement(this.sql)) {
 
-            statement.setInt(1, toUpdate.getProduit().getId());
-            statement.setInt(2, toUpdate.getFournisseur().getId());
-            statement.setDouble(3, toUpdate.getPrix());
+            mappingBdd(toUpdate, statement);
+
 
             statement.setInt(4, toUpdate.getId());
 
@@ -123,5 +122,11 @@ public class ProduitFournisseurDAO implements GenericDAO<ProduitFournisseur> {
             System.out.println("Erreur lors de la mise à jour de la table");
 
         }
+    }
+
+    private void mappingBdd(ProduitFournisseur toUpdate, PreparedStatement statement) throws SQLException {
+        statement.setInt(1, toUpdate.getProduit().getId());
+        statement.setInt(2, toUpdate.getFournisseur().getId());
+        statement.setDouble(3, toUpdate.getPrix());
     }
 }

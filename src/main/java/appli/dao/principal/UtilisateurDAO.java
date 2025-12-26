@@ -80,12 +80,7 @@ public class UtilisateurDAO implements GenericDAO<Utilisateur> {
         this.sql = "INSERT INTO "+ TABLE+" ("+NOM+","+PRENOM+","+EMAIL+","+MOT_DE_PASSE+","+ROLE+","+IS_ACTIVE+") VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
-            statement.setString(1,utilisateur.getNom());
-            statement.setString(2,utilisateur.getPrenom());
-            statement.setString(3,utilisateur.getEmail());
-            statement.setString(4,utilisateur.getMdp());
-            statement.setString(5,utilisateur.getRole().name());
-            statement.setBoolean(6,utilisateur.isActive());
+            mappingBdd(utilisateur, statement);
             statement.executeUpdate();
             System.out.println("Ajout de l'utilisateur efféctué");
 
@@ -119,12 +114,7 @@ public class UtilisateurDAO implements GenericDAO<Utilisateur> {
 
         try (PreparedStatement statement = db.prepareStatement(this.sql)) {
 
-            statement.setString(1, toUpdate.getNom());
-            statement.setString(2, toUpdate.getPrenom());
-            statement.setString(3, toUpdate.getEmail());
-            statement.setString(4, toUpdate.getMdp());
-            statement.setString(5, toUpdate.getRole().name()); // enum → String
-            statement.setBoolean(6, toUpdate.isActive());
+            mappingBdd(toUpdate, statement);
 
             statement.setInt(7, toUpdate.getId());
 
@@ -136,5 +126,14 @@ public class UtilisateurDAO implements GenericDAO<Utilisateur> {
             System.out.println("Erreur lors de la mise à jour de l'utilisateur");
 
         }
+    }
+
+    private void mappingBdd(Utilisateur toUpdate, PreparedStatement statement) throws SQLException {
+        statement.setString(1, toUpdate.getNom());
+        statement.setString(2, toUpdate.getPrenom());
+        statement.setString(3, toUpdate.getEmail());
+        statement.setString(4, toUpdate.getMdp());
+        statement.setString(5, toUpdate.getRole().name()); // enum → String
+        statement.setBoolean(6, toUpdate.isActive());
     }
 }
