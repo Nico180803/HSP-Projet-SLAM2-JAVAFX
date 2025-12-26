@@ -1,21 +1,21 @@
 package appli.model.principal;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Ordonnance {
 
     private int id;
-    private LocalDate dateTimeOrdonnance;
+    private LocalDateTime dateTimeOrdonnance;
     private DossierPriseEnCharge dossierPriseEnCharge;
 
     public Ordonnance() {}
 
-    public Ordonnance(LocalDate dateTimeOrdonnance,  DossierPriseEnCharge dossierPriseEnCharge) {
+    public Ordonnance(LocalDateTime dateTimeOrdonnance,  DossierPriseEnCharge dossierPriseEnCharge) {
         this.dateTimeOrdonnance = dateTimeOrdonnance;
         this.dossierPriseEnCharge = dossierPriseEnCharge;
     }
 
-    public Ordonnance(int id, LocalDate dateTimeOrdonnance,  DossierPriseEnCharge dossierPriseEnCharge) {
+    public Ordonnance(int id, LocalDateTime dateTimeOrdonnance,  DossierPriseEnCharge dossierPriseEnCharge) {
         this.id = id;
         this.dateTimeOrdonnance = dateTimeOrdonnance;
         this.dossierPriseEnCharge = dossierPriseEnCharge;
@@ -34,11 +34,11 @@ public class Ordonnance {
         return id;
     }
 
-    public LocalDate getDateTimeOrdonnance() {
+    public LocalDateTime getDateTimeOrdonnance() {
         return dateTimeOrdonnance;
     }
 
-    public void setDateTimeOrdonnance(LocalDate dateTimeOrdonnance) {
+    public void setDateTimeOrdonnance(LocalDateTime dateTimeOrdonnance) {
         this.dateTimeOrdonnance = dateTimeOrdonnance;
     }
 

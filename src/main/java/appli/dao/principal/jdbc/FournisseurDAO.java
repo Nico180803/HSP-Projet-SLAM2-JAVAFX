@@ -15,7 +15,9 @@ public class FournisseurDAO implements GenericDAO<Fournisseur> {
     private String sql;
 
     private static final String TABLE = "fournisseur";
-
+    private static final String NOM = "nom";
+    private static final String EMAIL = "email";
+    private static final String TEL = "tel";
 
     @Override
     public List<Fournisseur> getAll() {
@@ -28,31 +30,48 @@ public class FournisseurDAO implements GenericDAO<Fournisseur> {
     }
 
     @Override
-    public void insert(Fournisseur Fournisseur) {
-        this.sql = "INSERT INTO 'table' () VALUES ()";
+    public void insert(Fournisseur fournisseur) {
+        this.sql = "INSERT INTO " + TABLE + " (" + NOM + "," + EMAIL + "," + TEL + ") VALUES (?,?,?)";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
-
-        }catch (SQLException e){
-            System.out.println("Erreur lors de l'insert dans la table "+ e.getMessage());
+            mappingBdd(fournisseur, statement);
+            statement.executeUpdate();
+            System.out.println("Ajout du fournisseur effectué");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'insert dans la table " + e.getMessage());
         }
     }
 
     @Override
     public void delete(int id) {
-        this.sql = "DELETE FROM "+TABLE+" WHERE id = ?";
+        this.sql = "DELETE FROM " + TABLE + " WHERE id = ?";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
             statement.setInt(1, id);
             statement.executeUpdate();
-            System.out.println("ligne supprimé");
+            System.out.println("ligne supprimée");
         } catch (SQLException e) {
-            System.out.println("Erreur lors de la suppression de l'utilisateur");
+            System.out.println("Erreur lors de la suppression du fournisseur");
         }
     }
 
     @Override
     public void update(Fournisseur toUpdate) {
+        this.sql = "UPDATE " + TABLE + " SET " + NOM + " = ?, " + EMAIL + " = ?, " + TEL + " = ? WHERE id = ?";
+        try {
+            PreparedStatement statement = db.prepareStatement(this.sql);
+            mappingBdd(toUpdate, statement);
+            statement.setInt(4, toUpdate.getId());
+            statement.executeUpdate();
+            System.out.println("Fournisseur mis à jour");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la mise à jour du fournisseur");
+        }
+    }
 
+    private void mappingBdd(Fournisseur fournisseur, PreparedStatement statement) throws SQLException {
+        statement.setString(1, fournisseur.getNom());
+        statement.setString(2, fournisseur.getEmail());
+        statement.setString(3, fournisseur.getTel());
     }
 }

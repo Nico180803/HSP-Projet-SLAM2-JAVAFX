@@ -5,7 +5,7 @@ public class FichePatient {
     private int id;
     private String nom;
     private String prenom;
-    private String numSecuSociale;
+    private String numSecuSocial;
     private String telephone;
     private String email;
     private String rue;
@@ -15,10 +15,10 @@ public class FichePatient {
 
     public FichePatient(){}
 
-    public FichePatient(String nom, String prenom, String numSecuSociale, String telephone, String email, String rue, String numRue, String ville, String cp) {
+    public FichePatient(String nom, String prenom, String numSecuSocial, String telephone, String email, String rue, String numRue, String ville, String cp) {
         this.nom = nom;
         this.prenom = prenom;
-        this.numSecuSociale = numSecuSociale;
+        this.numSecuSocial = numSecuSocial;
         this.telephone = telephone;
         this.email = email;
         this.rue = rue;
@@ -27,11 +27,11 @@ public class FichePatient {
         this.cp = cp;
     }
 
-    public FichePatient(int id, String nom, String prenom, String numSecuSociale, String telephone, String email, String rue, String numRue, String ville, String cp) {
+    public FichePatient(int id, String nom, String prenom, String numSecuSocial, String telephone, String email, String rue, String numRue, String ville, String cp) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.numSecuSociale = numSecuSociale;
+        this.numSecuSocial = numSecuSocial;
         this.telephone = telephone;
         this.email = email;
         this.rue = rue;
@@ -46,7 +46,7 @@ public class FichePatient {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", numSecuSociale='" + numSecuSociale + '\'' +
+                ", numSecuSocial='" + numSecuSocial + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
                 ", rue='" + rue + '\'' +
@@ -76,12 +76,12 @@ public class FichePatient {
         this.prenom = prenom;
     }
 
-    public String getNumSecuSociale() {
-        return numSecuSociale;
+    public String getNumSecuSocial() {
+        return numSecuSocial;
     }
 
-    public void setNumSecuSociale(String numSecuSociale) {
-        this.numSecuSociale = numSecuSociale;
+    public void setNumSecuSocial(String numSecuSocial) {
+        this.numSecuSocial = numSecuSocial;
     }
 
     public String getTelephone() {

@@ -31,7 +31,7 @@ public class OrdonnanceDAO implements GenericDAO<Ordonnance> {
             while (rs.next()){
                 Ordonnance u = new Ordonnance(
                         rs.getInt("id"),
-                        rs.getDate(DATE_TIME).toLocalDate(),
+                        rs.getTimestamp(DATE_TIME).toLocalDateTime(),
                         dossierPriseEnChargeDAO.getById(rs.getInt(REF_DOSSIER))
                 );
                 ordonnances.add(u);
@@ -52,7 +52,7 @@ public class OrdonnanceDAO implements GenericDAO<Ordonnance> {
             if (rs.next()){
                 return new Ordonnance(
                         rs.getInt("id"),
-                        rs.getDate(DATE_TIME).toLocalDate(),
+                        rs.getTimestamp(DATE_TIME).toLocalDateTime(),
                         dossierPriseEnChargeDAO.getById(rs.getInt(REF_DOSSIER))
                 );
             }
@@ -114,7 +114,7 @@ public class OrdonnanceDAO implements GenericDAO<Ordonnance> {
     }
 
     private void mappingBdd(Ordonnance toUpdate, PreparedStatement statement) throws SQLException {
-        statement.setDate(1, Date.valueOf(toUpdate.getDateTimeOrdonnance()));
+        statement.setTimestamp(1, Timestamp.valueOf(toUpdate.getDateTimeOrdonnance()));
         statement.setInt(2, toUpdate.getDossierPriseEnCharge().getId());
 
     }

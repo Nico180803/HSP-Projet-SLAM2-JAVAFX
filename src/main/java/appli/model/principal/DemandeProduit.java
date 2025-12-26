@@ -71,6 +71,14 @@ public class DemandeProduit {
         this.quantite = quantite;
     }
 
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
+    }
+
     public LocalDateTime getDateDemande() {
         return dateDemande;
     }

@@ -17,7 +17,7 @@ public enum Gravite {
         return niveau;
     }
 
-    public Gravite fromSql(String niveau) {
+    public static Gravite fromSql(String niveau) {
         for (Gravite g : Gravite.values()) {
             if (g.niveau.equals(niveau)) {
                 return g;
