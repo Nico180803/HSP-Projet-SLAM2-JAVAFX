@@ -3,6 +3,7 @@ package appli.dao.principal.jdbc;
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
 import appli.model.principal.FichePatient;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,9 +29,9 @@ public class FichePatientDAO implements GenericDAO<FichePatient> {
     private static final String CP = "cp";
 
     @Override
-    public List<FichePatient> getAll() {
-        List<FichePatient> patients = new ArrayList<>();
-        this.sql = "SELECT * FROM " + TABLE;
+    public ObservableList<FichePatient> getAll() {
+        ObservableList<FichePatient> patients = null;
+        this.sql = "SELECT * FROM fiche_patient;";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
             ResultSet rs = statement.executeQuery();
@@ -47,10 +48,13 @@ public class FichePatientDAO implements GenericDAO<FichePatient> {
                         rs.getString(VILLE),
                         rs.getString(CP)
                 );
+
+                assert false;
                 patients.add(p);
             }
         } catch (SQLException e) {
             System.out.println("Erreur lors de la récupération des fiches patients");
+            System.out.println(e.getMessage());
         }
         return patients;
     }

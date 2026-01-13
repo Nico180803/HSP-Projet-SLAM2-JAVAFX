@@ -2,6 +2,7 @@ module appli.hsp_slam_jfx {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires javafx.graphics;
 
 
     exports appli.main;
