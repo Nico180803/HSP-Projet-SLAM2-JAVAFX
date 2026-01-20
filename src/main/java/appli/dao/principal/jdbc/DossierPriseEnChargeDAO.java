@@ -5,6 +5,7 @@ import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
 import appli.model.enums.Gravite;
 import appli.model.principal.DossierPriseEnCharge;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,8 +28,8 @@ public class DossierPriseEnChargeDAO implements GenericDAO<DossierPriseEnCharge>
     private static final String EST_TRAITE = "est_traite";
 
     @Override
-    public List<DossierPriseEnCharge> getAll() {
-        List<DossierPriseEnCharge> dossiers = new ArrayList<>();
+    public ObservableList<DossierPriseEnCharge> getAll() {
+        ObservableList<DossierPriseEnCharge> dossiers = null;
         this.sql = "SELECT * FROM " + TABLE;
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);

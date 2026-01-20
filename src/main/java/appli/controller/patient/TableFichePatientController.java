@@ -23,9 +23,8 @@ public class TableFichePatientController implements Initializable {
         fichePatients = fichePatientService.findAll();
         if (fichePatients == null || fichePatients.isEmpty()) {
             System.out.println("Aucune fiche patient trouvée");
-            tableauFichePatient.setItems(fichePatients);
         }
-
+        tableauFichePatient.setItems(fichePatients);
 
         String [][] colonnes = {
                 { "Nom","nom" },

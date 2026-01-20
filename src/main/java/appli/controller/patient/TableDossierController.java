@@ -1,8 +1,7 @@
 package appli.controller.patient;
+import appli.model.principal.DossierPriseEnCharge;
 import appli.model.principal.FichePatient;
-import appli.model.principal.Utilisateur;
-import appli.service.FichePatientService;
-import javafx.collections.FXCollections;
+import appli.service.DossierPriseEnChargeService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,11 +13,39 @@ import java.util.ResourceBundle;
 
 public class TableDossierController implements Initializable {
     @FXML
-    private TableView<FichePatient> tableauFichePatient;
-    private ObservableList<FichePatient> fichePatients;
-    private FichePatientService fichePatientService = new FichePatientService();
+    private TableView<DossierPriseEnCharge> tableauDossierPriseEnCharge;
+    private ObservableList<DossierPriseEnCharge> dossierPriseEnCharges;
+    private DossierPriseEnChargeService dossierPriseEnChargeService = new DossierPriseEnChargeService();
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    public void initialize(URL location, ResourceBundle resources) {
+
+        dossierPriseEnCharges = dossierPriseEnChargeService.findAll();
+        if (dossierPriseEnCharges == null || dossierPriseEnCharges.isEmpty()) {
+            System.out.println("Aucun dossiers trouvée");
+        }
+        tableauDossierPriseEnCharge.setItems(dossierPriseEnCharges);
+
+        String [][] colonnes = {
+                { "Date d'arrivé","dateTimeArrive" },
+                { "Description","description" },
+                { "Gravité","gravite" },
+                /* LIGNES DU DESSOUS A MODIFIER AVEC LE NOM DE LA FICHE PATIENT ET PTET SOUS FORME DE LIEN POUR Y ACCEDER*/
+                { "Ref Patient","ref_patient" },
+                { "Créer par ","ref_createdBy" },
+                { "Traité ?","est_traite" },
+        };
+
+        for ( int i = 0 ; i < colonnes.length ; i ++ ){
+            //Création de la colonne avec le titre
+            TableColumn<DossierPriseEnCharge,String> maCol = new TableColumn<>(colonnes[i][0]);
+
+            //Ligne permettant la liaison automatique de la cellule avec la propriété
+            maCol.setCellValueFactory(
+                    new PropertyValueFactory<DossierPriseEnCharge,String>(colonnes[i][1]));
+            //Ajout de la colonne dans notre tableau
+            tableauDossierPriseEnCharge.getColumns().add(maCol);
+        }
+    }
 }
