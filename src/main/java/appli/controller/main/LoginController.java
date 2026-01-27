@@ -11,4 +11,8 @@ public class LoginController {
         load("/appli/mdp/TableFicheMdp.fxml");
         System.out.println("Arrivée sur la page d'oubli de mot de passe");
     }
+    public void onConnexionButtonClick(){
+        load("/appli/shared/Overlay.fxml");
+        System.out.println("Arrivé sur l'overlay");
+    }
 }
