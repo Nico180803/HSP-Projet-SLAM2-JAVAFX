@@ -17,4 +17,14 @@ public class DossierPriseEnChargeService {
 
         return  dossierPriseEnCharges;
     }
+
+    public void addDossier(DossierPriseEnCharge dossierPriseEnCharge) {
+        GenericDAO<DossierPriseEnCharge> dossierPriseEnChargeDAO = DaoFactory.getDossierPriseEnChargeDAO();
+
+        assert dossierPriseEnChargeDAO != null;
+        dossierPriseEnChargeDAO.insert(dossierPriseEnCharge);
+
+        System.out.println("add dossier lancé");
+
+    }
 }

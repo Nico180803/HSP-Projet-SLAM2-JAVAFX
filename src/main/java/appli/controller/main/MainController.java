@@ -19,7 +19,7 @@ public abstract class MainController {
     protected Pane mainPane;
     protected Pane sidePage;
 
-    protected void load(String path){
+    public void load(String path){
         try {
             Parent view = FXMLLoader.load(getClass().getResource(path));
             mainPane.getChildren().setAll(view);
