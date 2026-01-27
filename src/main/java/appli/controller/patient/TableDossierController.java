@@ -1,6 +1,6 @@
 package appli.controller.patient;
+import appli.controller.main.MainController;
 import appli.model.principal.DossierPriseEnCharge;
-import appli.model.principal.FichePatient;
 import appli.service.DossierPriseEnChargeService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -47,5 +47,6 @@ public class TableDossierController implements Initializable {
             //Ajout de la colonne dans notre tableau
             tableauDossierPriseEnCharge.getColumns().add(maCol);
         }
+        MainController.getInstance().loadSide("/appli/patient/FormDossier.fxml");
     }
 }
