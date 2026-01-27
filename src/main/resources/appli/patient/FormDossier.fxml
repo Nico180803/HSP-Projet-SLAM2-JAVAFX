@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="appli.controller.patient.FormDossierController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="appli.controller.patient.FormDossierController"
+      spacing="10" style="-fx-padding: 10;">
+    <Label text="Ajouter un dossier"/>
+    <Label text="Description :"/>
+    <TextField fx:id="descriptionField"/>
+    <Label text="Gravité :"/>
+    <TextField fx:id="graviteField"/>
+    <Button text="Valider" onAction="#onValiderDossier"/>
+</VBox>

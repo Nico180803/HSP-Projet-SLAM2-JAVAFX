@@ -1,16 +1,41 @@
 package appli.controller.main;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 
-public class MainController {
-    @FXML
-    private Label welcomeText;
+public abstract class MainController {
+    private static MainController instance = null;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public MainController() {
+        instance = this;
     }
 
+    public final static MainController getInstance() {
+        return instance;
+    }
+
+    protected Pane mainPane;
+    protected Pane sidePage;
+
+    protected void load(String path){
+        try {
+            Parent view = FXMLLoader.load(getClass().getResource(path));
+            mainPane.getChildren().setAll(view);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public void loadSide(String path){
+        try {
+            Parent view = FXMLLoader.load(getClass().getResource(path));
+            sidePage.getChildren().setAll(view);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 }
 
