@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.LoginController">
    <children>
-      <Label layoutX="274.0" layoutY="192.0" prefHeight="17.0" prefWidth="99.0" text="TEST" />
+      <Label layoutX="235.0" layoutY="33.0" prefHeight="17.0" prefWidth="140.0" text="Page de connexion" />
+      <Button layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#onPageInscriptionButtonClick" text="Page d'inscription" />
+      <Button layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#onMdpOublieButtonClick" text="Mot de passe oublié" />
+      <Label layoutX="259.0" layoutY="82.0" text="Identifiant" />
+      <TextField fx:id="identifiantConnexion" layoutX="211.0" layoutY="103.0" />
+      <Label layoutX="250.0" layoutY="135.0" text="Mot de passe" />
+      <TextField fx:id="mdpConnexion" layoutX="211.0" layoutY="152.0" />
+      <Button layoutX="243.0" layoutY="187.0" mnemonicParsing="false" onAction="#onConnexionButtonClick" text="Se connecter" />
    </children>
 </AnchorPane>
