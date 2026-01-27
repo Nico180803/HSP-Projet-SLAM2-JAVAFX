@@ -75,6 +75,7 @@ public class UtilisateurDAO implements GenericDAO<Utilisateur> {
         return null;
     }
 
+
     @Override
     public void insert(Utilisateur utilisateur) {
         this.sql = "INSERT INTO "+ TABLE+" ("+NOM+","+PRENOM+","+EMAIL+","+MOT_DE_PASSE+","+ROLE+","+IS_ACTIVE+") VALUES (?,?,?,?,?,?)";
@@ -135,5 +136,28 @@ public class UtilisateurDAO implements GenericDAO<Utilisateur> {
         statement.setString(4, toUpdate.getMdp());
         statement.setString(5, toUpdate.getRole().name()); // enum → String
         statement.setBoolean(6, toUpdate.isActive());
+    }
+
+    public Utilisateur getByEmail(String email) {
+        this.sql = "SELECT * FROM utilisateur WHERE email = ?";
+        try {
+            PreparedStatement statement = db.prepareStatement(sql);
+            statement.setString(1, email);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return new Utilisateur(
+                        rs.getInt("id"),
+                        rs.getString(NOM),
+                        rs.getString(PRENOM),
+                        rs.getString(EMAIL),
+                        rs.getString(MOT_DE_PASSE),
+                        Role.valueOf(rs.getString(ROLE)),
+                        rs.getBoolean(IS_ACTIVE)
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la récupération de l'utilisateur : " + e.getMessage());
+        }
+        return null;
     }
 }
