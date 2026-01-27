@@ -47,5 +47,7 @@ public class TableFichePatientController implements Initializable {
             //Ajout de la colonne dans notre tableau
             tableauFichePatient.getColumns().add(maCol);
         }
+        tableauFichePatient.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
     }
 }

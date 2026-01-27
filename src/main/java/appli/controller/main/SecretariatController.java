@@ -23,11 +23,13 @@ public class SecretariatController extends MainController{
 
     public void onFichesPatients(ActionEvent actionEvent) {
         load("/appli/patient/TableFichePatient.fxml");
+        loadSide("/appli/patient/FormFichePatient.fxml");
         System.out.println("Fiches Patient cliqué");
     }
 
     public void onDossier(ActionEvent actionEvent) {
         load("/appli/patient/TableDossier.fxml");
+        loadSide("/appli/patient/FormDossier.fxml");
         System.out.println("Dossiers cliqué");
     }
 }
