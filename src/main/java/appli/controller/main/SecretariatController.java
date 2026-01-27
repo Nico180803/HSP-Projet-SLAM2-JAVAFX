@@ -2,13 +2,13 @@ package appli.controller.main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
-public class SecretariatController {
+public class SecretariatController extends MainController{
 
+    public AnchorPane testDroite;
     @FXML
     private StackPane contentPane;
 
@@ -17,6 +17,8 @@ public class SecretariatController {
 
 
     public void initialize(){
+        mainPane = contentPane;
+        sidePage = testDroite;
     }
 
     public void onFichesPatients(ActionEvent actionEvent) {
@@ -27,16 +29,5 @@ public class SecretariatController {
     public void onDossier(ActionEvent actionEvent) {
         load("/appli/patient/TableDossier.fxml");
         System.out.println("Dossiers cliqué");
-    }
-
-
-    private void load(String path){
-        try {
-            Parent view = FXMLLoader.load(getClass().getResource(path));
-            contentPane.getChildren().setAll(view);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
     }
 }
