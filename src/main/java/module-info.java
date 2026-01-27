@@ -16,6 +16,7 @@ module appli.hsp_slam_jfx {
     opens appli.controller.shared to javafx.fxml;
     exports appli;
     opens appli to javafx.fxml;
+    opens appli.model.principal to javafx.base;
 
 
 
