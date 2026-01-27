@@ -15,7 +15,7 @@ public class TableDossierController implements Initializable {
     @FXML
     private TableView<DossierPriseEnCharge> tableauDossierPriseEnCharge;
     private ObservableList<DossierPriseEnCharge> dossierPriseEnCharges;
-    private DossierPriseEnChargeService dossierPriseEnChargeService = new DossierPriseEnChargeService();
+    private final DossierPriseEnChargeService dossierPriseEnChargeService = new DossierPriseEnChargeService();
 
 
     @Override
@@ -47,6 +47,8 @@ public class TableDossierController implements Initializable {
             //Ajout de la colonne dans notre tableau
             tableauDossierPriseEnCharge.getColumns().add(maCol);
         }
+        tableauDossierPriseEnCharge.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
         MainController.getInstance().loadSide("/appli/patient/FormDossier.fxml");
     }
 }

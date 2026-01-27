@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 
-<VBox xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="appli.controller.patient.FormDossierController"
-      spacing="10" style="-fx-padding: 10;">
-    <Label text="Ajouter un dossier"/>
-    <Label text="Description :"/>
-    <TextField fx:id="descriptionField"/>
-    <Label text="Gravité :"/>
-    <TextField fx:id="graviteField"/>
-    <Button text="Valider" onAction="#onValiderDossier"/>
+      spacing="15"
+      alignment="TOP_CENTER"
+      styleClass="form-container">
+
+    <!-- Titre -->
+    <Label text="Ajouter un dossier patient"
+           styleClass="form-title"/>
+
+    <!-- Patient -->
+    <VBox spacing="5">
+        <Label text="Patient" styleClass="form-label"/>
+        <ChoiceBox fx:id="patientField" prefWidth="280"/>
+    </VBox>
+
+    <!-- Description -->
+    <VBox spacing="5">
+        <Label text="Description" styleClass="form-label"/>
+        <TextArea fx:id="descriptionField"
+                  prefWidth="280"
+                  prefHeight="120"
+                  wrapText="true"/>
+    </VBox>
+
+    <!-- Gravité -->
+    <VBox spacing="5">
+        <Label text="Gravité" styleClass="form-label"/>
+        <ChoiceBox fx:id="graviteField" prefWidth="280"/>
+    </VBox>
+
+    <!-- Bouton -->
+    <Button text="Valider le dossier"
+            onAction="#onValiderDossier"
+            styleClass="primary-button"/>
+
 </VBox>

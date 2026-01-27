@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="appli.controller.patient.FormFichePatientController"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="appli.controller.patient.FormFichePatientController"
+      spacing="15"
+      alignment="TOP_CENTER"
+      styleClass="form-container">
 
-</AnchorPane>
+    <!-- Titre -->
+    <Label text="Ajouter une fiche patient"
+           styleClass="form-title"/>
+
+    <!-- Identité -->
+    <VBox spacing="5">
+        <Label text="Nom" styleClass="form-label"/>
+        <TextField fx:id="nomField" prefWidth="280"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Prénom" styleClass="form-label"/>
+        <TextField fx:id="prenomField" prefWidth="280"/>
+    </VBox>
+
+    <!-- Contact -->
+    <VBox spacing="5">
+        <Label text="Email" styleClass="form-label"/>
+        <TextField fx:id="mailField" prefWidth="280"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Téléphone" styleClass="form-label"/>
+        <TextField fx:id="telField" prefWidth="280"/>
+    </VBox>
+
+    <!-- Sécurité sociale -->
+    <VBox spacing="5">
+        <Label text="Numéro de sécurité sociale" styleClass="form-label"/>
+        <TextField fx:id="numSecuField" prefWidth="280"/>
+    </VBox>
+
+    <!-- Adresse -->
+    <VBox spacing="5">
+        <Label text="Rue" styleClass="form-label"/>
+        <TextField fx:id="rueField" prefWidth="280"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <VBox spacing="5">
+            <Label text="N°" styleClass="form-label"/>
+            <TextField fx:id="numRueField" prefWidth="130"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Code postal" styleClass="form-label"/>
+            <TextField fx:id="cpField" prefWidth="130"/>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="5">
+        <Label text="Ville" styleClass="form-label"/>
+        <TextField fx:id="villeField" prefWidth="280"/>
+    </VBox>
+
+    <!-- Bouton -->
+    <Button text="Valider la fiche"
+            onAction="#onValiderFiche"
+            styleClass="primary-button"/>
+
+</VBox>
