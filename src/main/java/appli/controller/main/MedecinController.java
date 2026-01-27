@@ -22,7 +22,6 @@ public class MedecinController extends MainController{
     }
 
     public void onDemandeDeStock(ActionEvent actionEvent) {
-
     }
 
     public void onHospitalisation(ActionEvent actionEvent) {

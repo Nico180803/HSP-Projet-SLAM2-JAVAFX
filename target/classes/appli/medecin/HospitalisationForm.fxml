@@ -10,5 +10,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="appli.controller.medecin.HospitalisationFormController"
             prefHeight="400.0" prefWidth="600.0">
+    <TableView fx:id="hospitalisationTableView" prefWidth="800" prefHeight="500">
 
+    </TableView>
 </AnchorPane>
