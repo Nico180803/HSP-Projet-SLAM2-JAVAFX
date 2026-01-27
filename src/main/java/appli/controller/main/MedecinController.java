@@ -27,12 +27,10 @@ public class MedecinController extends MainController{
 
     public void onHospitalisation(ActionEvent actionEvent) {
         load("/appli/medecin/HospitalisationForm.fxml");
-
         System.out.println("Dossiers cliqué");
     }
     public void onOrdonnance(ActionEvent actionEvent) {
         load("/appli/medecin/OrdonnanceForm.fxml");
-
         System.out.println("Dossiers cliqué");
     }
 }
