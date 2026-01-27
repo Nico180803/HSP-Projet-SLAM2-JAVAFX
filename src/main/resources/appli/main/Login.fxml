@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.LoginController">
    <children>
-      <Label layoutX="235.0" layoutY="33.0" prefHeight="17.0" prefWidth="140.0" text="Page de connexion" />
-      <Button layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#onPageInscriptionButtonClick" text="Page d'inscription" />
-      <Button layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#onMdpOublieButtonClick" text="Mot de passe oublié" />
+      <Label layoutX="215.0" layoutY="29.0" prefHeight="17.0" prefWidth="140.0" text="Page de connexion">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
       <Label layoutX="259.0" layoutY="82.0" text="Identifiant" />
-      <TextField fx:id="identifiantConnexion" layoutX="211.0" layoutY="103.0" />
+      <TextField fx:id="emailField" layoutX="211.0" layoutY="103.0" />
       <Label layoutX="250.0" layoutY="135.0" text="Mot de passe" />
-      <TextField fx:id="mdpConnexion" layoutX="211.0" layoutY="152.0" />
-      <Button layoutX="243.0" layoutY="187.0" mnemonicParsing="false" onAction="#onConnexionButtonClick" text="Se connecter" />
+      <TextField fx:id="mdpField" layoutX="211.0" layoutY="152.0" />
+      <Button fx:id="connexionButton" layoutX="243.0" layoutY="187.0" mnemonicParsing="false" onAction="#onConnexionButtonClick" text="Se connecter" />
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <VBox prefHeight="400.0" prefWidth="90.0" spacing="10.0" style="-fx-background-color: #2c3e50;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="pageInscriptionButton" mnemonicParsing="false" onAction="#onPageInscriptionButtonClick" prefHeight="25.0" prefWidth="79.0" text="Inscription" />
+                  <Button fx:id="mdpOublieButton" mnemonicParsing="false" onAction="#onMdpOublieButtonClick" text="Mot de passe oublié" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+               </padding>
+            </VBox>
+         </left>
+         <bottom>
+            <HBox prefHeight="29.0" prefWidth="600.0" style="-fx-background-color: #bdc3c7;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Connecté : " />
+                  <Label text="Invité" />
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
    </children>
 </AnchorPane>
