@@ -10,9 +10,9 @@
 <?import javafx.scene.control.TableColumn?>
 
 
-
+<?import javafx.scene.layout.AnchorPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="appli.controller.management.MedecinManagementController"
+            fx:controller="appli.controller.main.MedecinController"
             prefWidth="900" prefHeight="600">
 
     <!-- Menu gauche -->
@@ -33,6 +33,13 @@
 
         </StackPane>
     </center>
+
+    <right>
+        <AnchorPane fx:id="testDroite">
+
+        </AnchorPane>
+
+    </right>
 
 
     <!-- Bas : utilisateur connecté -->

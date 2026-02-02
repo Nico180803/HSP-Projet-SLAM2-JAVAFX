@@ -19,4 +19,11 @@ public class FichePatientService {
         return  fichePatients;
     }
 
+    public void add(FichePatient fichePatient){
+        GenericDAO<FichePatient> fichePatientsDAO = DaoFactory.getFichePatientDAO();
+
+        assert fichePatientsDAO != null;
+        fichePatientsDAO.insert(fichePatient);
+    }
+
 }
