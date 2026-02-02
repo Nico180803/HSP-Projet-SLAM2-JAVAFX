@@ -22,17 +22,14 @@ public class MedecinController extends MainController{
     }
 
     public void onDemandeDeStock(ActionEvent actionEvent) {
-
     }
 
     public void onHospitalisation(ActionEvent actionEvent) {
-        load("/appli/medecin/Hospitalisation.fxml");
-
+        load("/appli/medecin/HospitalisationForm.fxml");
         System.out.println("Dossiers cliqué");
     }
     public void onOrdonnance(ActionEvent actionEvent) {
-        load("/appli/medecin/Ordonnance.fxml");
-
+        load("/appli/medecin/OrdonnanceForm.fxml");
         System.out.println("Dossiers cliqué");
     }
 }
