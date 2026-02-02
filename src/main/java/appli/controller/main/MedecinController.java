@@ -20,7 +20,6 @@ public class MedecinController extends MainController{
         mainPane = contentPane;
         sidePage = testDroite;
         load("/appli/patient/TableFichePatient.fxml");
-        loadSide("/appli/patient/FormFichePatient.fxml");
         System.out.println("Fiches Patient cliqué");
     }
 
