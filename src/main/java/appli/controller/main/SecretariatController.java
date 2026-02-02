@@ -19,6 +19,8 @@ public class SecretariatController extends MainController{
     public void initialize(){
         mainPane = contentPane;
         sidePage = testDroite;
+        load("/appli/patient/TableFichePatient.fxml");
+        loadSide("/appli/patient/FormFichePatient.fxml");
     }
 
     public void onFichesPatients(ActionEvent actionEvent) {
