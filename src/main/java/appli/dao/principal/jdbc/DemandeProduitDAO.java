@@ -5,6 +5,8 @@ import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
 import appli.model.enums.Statut;
 import appli.model.principal.DemandeProduit;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 import java.sql.*;
@@ -27,8 +29,8 @@ public class DemandeProduitDAO implements GenericDAO<DemandeProduit> {
     private static final String DATE_DEMANDE = "dateDemande";
 
     @Override
-    public List<DemandeProduit> getAll() {
-        List<DemandeProduit> demandes = new ArrayList<>();
+    public ObservableList<DemandeProduit> getAll() {
+        ObservableList<DemandeProduit> demandes = FXCollections.observableArrayList();
         this.sql = "SELECT * FROM " + TABLE;
         try (PreparedStatement statement = db.prepareStatement(this.sql)) {
             ResultSet rs = statement.executeQuery();
