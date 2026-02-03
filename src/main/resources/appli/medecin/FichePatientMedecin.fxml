@@ -8,9 +8,9 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="appli.controller.medecin.HospitalisationFormController"
+            fx:controller="appli.controller.medecin.FichePatientController"
             prefHeight="400.0" prefWidth="600.0">
-    <TableView fx:id="hospitalisationTableView" prefWidth="800" prefHeight="500">
+    <TableView fx:id="tableauFichePatient" prefWidth="800" prefHeight="500">
 
     </TableView>
 </AnchorPane>

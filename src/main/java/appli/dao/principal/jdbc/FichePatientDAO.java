@@ -3,13 +3,12 @@ package appli.dao.principal.jdbc;
 import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
 import appli.model.principal.FichePatient;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.ArrayList;
 import java.sql.ResultSet;
 
 public class FichePatientDAO implements GenericDAO<FichePatient> {
@@ -30,7 +29,7 @@ public class FichePatientDAO implements GenericDAO<FichePatient> {
 
     @Override
     public ObservableList<FichePatient> getAll() {
-        ObservableList<FichePatient> patients = null;
+        ObservableList<FichePatient> patients = FXCollections.observableArrayList();;
         this.sql = "SELECT * FROM fiche_patient;";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
@@ -49,7 +48,6 @@ public class FichePatientDAO implements GenericDAO<FichePatient> {
                         rs.getString(CP)
                 );
 
-                assert false;
                 patients.add(p);
             }
         } catch (SQLException e) {

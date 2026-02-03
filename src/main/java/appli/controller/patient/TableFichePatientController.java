@@ -30,7 +30,7 @@ public class TableFichePatientController implements Initializable {
                 { "Nom","nom" },
                 { "Prénom","prenom" },
                 { "Sécurité sociale","numSecuSocial" },
-                { "Telephone","tel" },
+                { "Telephone","telephone" },
                 { "Rue","rue" },
                 { "Numéro de rue","numRue" },
                 { "ville","ville" },

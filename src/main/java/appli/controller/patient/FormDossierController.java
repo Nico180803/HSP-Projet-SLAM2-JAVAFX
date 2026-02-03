@@ -33,7 +33,7 @@ public class FormDossierController
         graviteField.getSelectionModel().select(0);
 
         //FICHE PATIENT
-        //patientField.getItems().addAll(fichePatientService.findAll());
+        patientField.getItems().addAll(fichePatientService.findAll());
     }
 
     public void onValiderDossier(ActionEvent actionEvent) {

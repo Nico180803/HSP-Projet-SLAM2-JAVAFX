@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
-public class SecretariatController extends MainController{
+public class MedecinController extends MainController{
 
     public AnchorPane testDroite;
     @FXML
@@ -20,18 +20,18 @@ public class SecretariatController extends MainController{
         mainPane = contentPane;
         sidePage = testDroite;
         load("/appli/patient/TableFichePatient.fxml");
-        loadSide("/appli/patient/FormFichePatient.fxml");
-    }
-
-    public void onFichesPatients(ActionEvent actionEvent) {
-        load("/appli/patient/TableFichePatient.fxml");
-        loadSide("/appli/patient/FormFichePatient.fxml");
         System.out.println("Fiches Patient cliqué");
     }
 
-    public void onDossier(ActionEvent actionEvent) {
-        load("/appli/patient/TableDossier.fxml");
-        loadSide("/appli/patient/FormDossier.fxml");
+    public void onDemandeDeStock(ActionEvent actionEvent) {
+    }
+
+    public void onHospitalisation(ActionEvent actionEvent) {
+        load("/appli/medecin/HospitalisationForm.fxml");
+        System.out.println("Dossiers cliqué");
+    }
+    public void onOrdonnance(ActionEvent actionEvent) {
+        load("/appli/medecin/OrdonnanceForm.fxml");
         System.out.println("Dossiers cliqué");
     }
 }
