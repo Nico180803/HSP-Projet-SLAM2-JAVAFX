@@ -4,6 +4,8 @@ import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
 import appli.model.principal.Hospitalisation;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -24,8 +26,8 @@ public class HospitalisationDAO implements GenericDAO<Hospitalisation> {
     private static final String DATE_FIN = "dateFin";
 
     @Override
-    public List<Hospitalisation> getAll() {
-        List<Hospitalisation> hospitalisations = new ArrayList<>();
+    public ObservableList<Hospitalisation> getAll() {
+        ObservableList<Hospitalisation> hospitalisations = FXCollections.observableArrayList();
 
         this.sql = "SELECT * FROM " + TABLE;
         try {

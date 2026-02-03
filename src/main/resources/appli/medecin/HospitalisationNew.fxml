@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="15" styleClass="form-container" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.medecin.HospitalisationNewController">
+
+    <!-- Titre -->
+    <Label styleClass="form-title" text="Ajouter une hospitalisation" />
+
+    <!-- Ref -->
+    <VBox spacing="5">
+        <Label styleClass="form-label" text="Dossier" />
+        <ChoiceBox prefWidth="150.0" fx:id="refDossier" />
+
+    </VBox>
+
+    <VBox spacing="5">
+        <Label styleClass="form-label" text="Chambre" />
+        <ChoiceBox prefWidth="150.0" fx:id="refChambre"/>
+    </VBox>
+
+    <!-- Date -->
+    <VBox spacing="5">
+        <Label styleClass="form-label" text="Date de début" />
+        <DatePicker fx:id="dateDebut"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label styleClass="form-label" text="Date de fin" />
+        <DatePicker fx:id="dateFin" />
+    </VBox>
+
+
+    <!-- Bouton -->
+    <Button onAction="#onValiderFiche" styleClass="primary-button" text="Valider l'hospitalisation'" />
+
+</VBox>
