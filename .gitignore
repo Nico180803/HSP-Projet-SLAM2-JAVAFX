@@ -10,4 +10,4 @@
 
 /.idea
 
-**/db.properties
+src/main/resources/appli/db.properties

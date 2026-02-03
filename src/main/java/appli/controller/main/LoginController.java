@@ -1,17 +1,16 @@
 package appli.controller.main;
 
 import appli.dao.principal.jdbc.UtilisateurDAO;
+import appli.main.HelloApplication;
 import appli.model.principal.Utilisateur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import session.SessionUtilisateur;
-
 import java.io.IOException;
-
-import static java.lang.System.load;
 
 public class LoginController {
     private final UtilisateurDAO repo = new UtilisateurDAO();
@@ -51,15 +50,11 @@ public class LoginController {
     }
 
     public void onPageInscriptionButtonClick() {
-        load("/appli/patient/TableFichePatient.fxml");
-        System.out.println("Arrivée sur la page d'inscription");
     }
     public void onMdpOublieButtonClick(){
-        load("/appli/mdp/TableFicheMdp.fxml");
-        System.out.println("Arrivée sur la page d'oubli de mot de passe");
     }
-    public void onConnexionButtonClick(){
-        load("/appli/shared/Overlay.fxml");
-        System.out.println("Arrivé sur l'overlay");
+    public void onConnexionButtonClick() throws IOException {
+        HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
+        System.out.println("Arrivé sur le secrétariat management");
     }
 }
