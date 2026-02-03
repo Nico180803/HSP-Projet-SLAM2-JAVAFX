@@ -6,6 +6,7 @@
 <VBox alignment="TOP_CENTER" spacing="15" styleClass="form-container" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.medecin.OrdonnanceNewController">
 
     <!-- Titre -->
+
     <Label styleClass="form-title" text="Ajouter une hospitalisation" />
 
     <!-- Ref -->

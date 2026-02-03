@@ -10,7 +10,6 @@ import javafx.collections.ObservableList;
 public class OrdonnanceService {
     public ObservableList<Ordonnance> findAll()
     {
-
         GenericDAO<Ordonnance> ordonnanceDAO = DaoFactory.getOrdonnanceDAO();
         ObservableList<Ordonnance> ordonnances;
         assert ordonnanceDAO != null;

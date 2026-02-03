@@ -9,6 +9,7 @@
     <Label styleClass="form-title" text="Ajouter une hospitalisation" />
 
     <!-- Ref -->
+
     <VBox spacing="5">
         <Label styleClass="form-label" text="Dossier" />
         <ChoiceBox prefWidth="150.0" fx:id="refDossier" />

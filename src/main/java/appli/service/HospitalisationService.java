@@ -9,7 +9,6 @@ import javafx.collections.ObservableList;
 public class HospitalisationService {
     public ObservableList<Hospitalisation> findAll()
     {
-
         GenericDAO<Hospitalisation> hospitalisationDAO = DaoFactory.getHospitalisationDAO();
         ObservableList<Hospitalisation> hospitalisations;
         assert hospitalisationDAO != null;
