@@ -4,13 +4,12 @@ import appli.controller.main.MainController;
 import appli.model.enums.Gravite;
 import appli.model.principal.DossierPriseEnCharge;
 import appli.model.principal.FichePatient;
-import appli.model.principal.Utilisateur;
 import appli.service.DossierPriseEnChargeService;
 import appli.service.FichePatientService;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import session.SessionUtilisateur;
 
 import java.time.LocalDateTime;
 
@@ -34,9 +33,10 @@ public class FormDossierController
 
         //FICHE PATIENT
         patientField.getItems().addAll(fichePatientService.findAll());
+
     }
 
-    public void onValiderDossier(ActionEvent actionEvent) {
+    public void onValiderDossier() {
 
         String description = descriptionField.getText();
         Gravite gravite = graviteField.getSelectionModel().getSelectedItem();
@@ -48,8 +48,8 @@ public class FormDossierController
         }else{
             //une fois la connexion faite, tester l'ajout//
 
-            //DossierPriseEnCharge dossierPriseEnCharge = new DossierPriseEnCharge(LocalDateTime.now(),description,gravite,fichePatient,"",false);
-            //dossierPriseEnChargeService.addDossier();
+            DossierPriseEnCharge dossierPriseEnCharge = new DossierPriseEnCharge(LocalDateTime.now(),description,gravite,fichePatient, SessionUtilisateur.getInstance().getUtilisateur(), false);
+            dossierPriseEnChargeService.addDossier(dossierPriseEnCharge);
 
 
             //On recharge le tableau après l'ajout de la fiche patient
