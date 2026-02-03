@@ -43,6 +43,7 @@ public class LoginController {
             if (utilisateur != null) {
                 System.out.println("Connexion réussie pour : " + utilisateur.getNom());
                 SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
+                HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
             } else {
                 System.out.println("Échec de la connexion. Email ou mot de passe incorrect.");
             }
@@ -54,7 +55,7 @@ public class LoginController {
     public void onMdpOublieButtonClick(){
     }
     public void onConnexionButtonClick() throws IOException {
-        HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
+        handleLogin(null);
         System.out.println("Arrivé sur le secrétariat management");
     }
 }
