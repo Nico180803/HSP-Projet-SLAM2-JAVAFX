@@ -24,7 +24,8 @@ public class MedecinController extends MainController{
     }
 
     public void onDemandeDeStock(ActionEvent actionEvent) {
-
+        load("/appli/medecin/TableauDemandeStock.fxml");
+        System.out.println("Fiches Patient cliqué");
     }
 
     public void onHospitalisation(ActionEvent actionEvent) {
