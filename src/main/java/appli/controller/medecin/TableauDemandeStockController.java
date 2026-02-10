@@ -48,5 +48,6 @@ public class TableauDemandeStockController implements Initializable {
             //Ajout de la colonne dans notre tableau
             tableauDemande.getColumns().add(maCol);
         }
+        tableauDemande.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
     }
 }

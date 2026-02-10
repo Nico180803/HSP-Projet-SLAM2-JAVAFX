@@ -6,9 +6,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="appli.controller.medecin.DemandeStockController"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.text.Text?>
+<VBox alignment="TOP_CENTER" spacing="15" styleClass="form-container" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.medecin.DemandeStockController">
 
-</AnchorPane>
+    <!-- Titre -->
+    <Label styleClass="form-title" text="Faire une demande" />
+
+    <!-- Ref -->
+
+
+    <VBox spacing="5">
+        <Label styleClass="form-label" text="Produit" />
+        <ChoiceBox prefWidth="150.0" fx:id="refProduit"/>
+    </VBox>
+
+    <!-- Date -->
+    <VBox spacing="5">
+        <Label styleClass="form-label" text="Quantité" />
+        <TextField fx:id="quantiteDemandee"/>
+    </VBox>
+
+
+
+
+    <!-- Bouton -->
+    <Button onAction="#onValiderFiche" styleClass="primary-button" text="Valider la demande'" />
+
+</VBox>

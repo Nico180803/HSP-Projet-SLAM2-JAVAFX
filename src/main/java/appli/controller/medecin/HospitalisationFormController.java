@@ -48,5 +48,6 @@ public class HospitalisationFormController implements Initializable {
             //Ajout de la colonne dans notre tableau
             hospitalisationTableView.getColumns().add(maCol);
         }
+        hospitalisationTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
     }
 }

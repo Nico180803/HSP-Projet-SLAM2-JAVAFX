@@ -13,10 +13,11 @@
     <TableView fx:id="tableauDemande"
                layoutX="10"
                layoutY="10"
-               prefWidth="900"
                prefHeight="500"
-               AnchorPane.topAnchor="10"
+               prefWidth="900"
                AnchorPane.bottomAnchor="10"
                AnchorPane.leftAnchor="10"
-               AnchorPane.rightAnchor="10" />
+               AnchorPane.rightAnchor="10"
+               AnchorPane.topAnchor="10"
+       />
 </AnchorPane>

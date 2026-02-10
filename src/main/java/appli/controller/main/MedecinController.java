@@ -22,9 +22,14 @@ public class MedecinController extends MainController{
         load("/appli/patient/TableDossier.fxml");
         System.out.println("Fiches Patient cliqué");
     }
+    public void onDossier(ActionEvent actionEvent) {
+        load("/appli/patient/TableDossier.fxml");
+        System.out.println("Fiches Patient cliqué");
+    }
 
     public void onDemandeDeStock(ActionEvent actionEvent) {
         load("/appli/medecin/TableauDemandeStock.fxml");
+        loadSide("/appli/medecin/DemandeStockForm.fxml");
         System.out.println("Fiches Patient cliqué");
     }
 
@@ -38,4 +43,6 @@ public class MedecinController extends MainController{
         loadSide("/appli/medecin/HospitalisationNew.fxml");
         System.out.println("Dossiers cliqué");
     }
+
+
 }

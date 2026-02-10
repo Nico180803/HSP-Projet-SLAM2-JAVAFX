@@ -42,6 +42,7 @@ public class OrdonnanceFormController {
             //Ajout de la colonne dans notre tableau
             ordonnanceTableView.getColumns().add(maCol);
         }
+        ordonnanceTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
     }
 
 }
