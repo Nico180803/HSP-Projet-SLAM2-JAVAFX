@@ -91,4 +91,11 @@ public class LogsUtilisateur {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    public void setDescription(String s) {
+
+    }
+
+    public void setLogsUtilisateur(String s) {
+    }
 }

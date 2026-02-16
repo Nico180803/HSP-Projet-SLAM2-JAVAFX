@@ -2,6 +2,7 @@ package appli.model.logs;
 
 public class TableCible {
 
+    public static final TableCible UTILISATEUR = null;
     private int id;
     private String nom;
     private String description;
