@@ -23,8 +23,10 @@ public class HelloApplication extends Application {
     }
 
     public static void changeScene(String fxml) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxml));
         Scene scene = new Scene(loader.load());
         mainStage.setScene(scene);
+
     }
 }
