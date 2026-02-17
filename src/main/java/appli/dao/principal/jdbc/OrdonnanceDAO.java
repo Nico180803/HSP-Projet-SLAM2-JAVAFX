@@ -4,6 +4,8 @@ import appli.config.DatabaseConnection;
 import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
 import appli.model.principal.Ordonnance;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,8 +23,8 @@ public class OrdonnanceDAO implements GenericDAO<Ordonnance> {
     private static final String REF_DOSSIER = "refDossier";
 
     @Override
-    public List<Ordonnance> getAll() {
-        List<Ordonnance> ordonnances = new ArrayList<>();
+    public ObservableList<Ordonnance> getAll() {
+        ObservableList<Ordonnance> ordonnances = FXCollections.observableArrayList();
 
         this.sql = "SELECT * FROM "+TABLE;
         try{

@@ -5,11 +5,10 @@ import appli.dao.GenericDAO;
 import appli.factory.DaoFactory;
 import appli.model.enums.Gravite;
 import appli.model.principal.DossierPriseEnCharge;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DossierPriseEnChargeDAO implements GenericDAO<DossierPriseEnCharge> {
 
@@ -29,7 +28,7 @@ public class DossierPriseEnChargeDAO implements GenericDAO<DossierPriseEnCharge>
 
     @Override
     public ObservableList<DossierPriseEnCharge> getAll() {
-        ObservableList<DossierPriseEnCharge> dossiers = null;
+        ObservableList<DossierPriseEnCharge> dossiers = FXCollections.observableArrayList();
         this.sql = "SELECT * FROM " + TABLE;
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);

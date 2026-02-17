@@ -19,19 +19,30 @@ public class MedecinController extends MainController{
     public void initialize(){
         mainPane = contentPane;
         sidePage = testDroite;
-        load("/appli/patient/TableFichePatient.fxml");
+        load("/appli/patient/TableDossier.fxml");
+        System.out.println("Fiches Patient cliqué");
+    }
+    public void onDossier(ActionEvent actionEvent) {
+        load("/appli/patient/TableDossier.fxml");
         System.out.println("Fiches Patient cliqué");
     }
 
     public void onDemandeDeStock(ActionEvent actionEvent) {
+        load("/appli/medecin/TableauDemandeStock.fxml");
+        loadSide("/appli/medecin/DemandeStockForm.fxml");
+        System.out.println("Fiches Patient cliqué");
     }
 
     public void onHospitalisation(ActionEvent actionEvent) {
         load("/appli/medecin/HospitalisationForm.fxml");
+        loadSide("/appli/medecin/HospitalisationNew.fxml");
         System.out.println("Dossiers cliqué");
     }
     public void onOrdonnance(ActionEvent actionEvent) {
         load("/appli/medecin/OrdonnanceForm.fxml");
+        loadSide("/appli/medecin/HospitalisationNew.fxml");
         System.out.println("Dossiers cliqué");
     }
+
+
 }

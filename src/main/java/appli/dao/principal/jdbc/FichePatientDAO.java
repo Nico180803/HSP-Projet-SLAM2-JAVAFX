@@ -29,7 +29,7 @@ public class FichePatientDAO implements GenericDAO<FichePatient> {
 
     @Override
     public ObservableList<FichePatient> getAll() {
-        ObservableList<FichePatient> patients = FXCollections.observableArrayList();;
+        ObservableList<FichePatient> patients = FXCollections.observableArrayList();
         this.sql = "SELECT * FROM fiche_patient;";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
