@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.InscriptionController">
+    <children>
+        <BorderPane prefHeight="600.0" prefWidth="800.0">
+            <left>
+                <VBox prefHeight="571.0" prefWidth="103.0" spacing="10.0" style="-fx-background-color: #2c3e50;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="pageConnexionButton" mnemonicParsing="false" onAction="#onPageConnexionButtonClick" prefHeight="25.0" prefWidth="79.0" text="Connexion" />
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+                    </padding>
+                </VBox>
+            </left>
+            <bottom>
+                <HBox prefHeight="29.0" prefWidth="600.0" style="-fx-background-color: #bdc3c7;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="Connecté : " />
+                        <Label text="Invité" />
+                    </children>
+                </HBox>
+            </bottom>
+            <center>
+                <VBox prefHeight="371.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="140.0" text="Page d'inscription">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Label text="Nom" />
+                        <TextField fx:id="nomField" />
+                        <Label text="Prénom" />
+                        <TextField fx:id="prenomField" />
+                  <Label text="Email" />
+                  <TextField fx:id="emailField" />
+                  <Label text="Mot de passe" />
+                  <TextField fx:id="mdpField" />
+                  <Label text="Mot de passe (doit être identique au premier)" />
+                  <TextField fx:id="mdpDeuxField" />
+                  <Label text="Rôle" />
+                  <ChoiceBox fx:id="roleBox" prefWidth="150.0" />
+                        <Button fx:id="inscriptionButton" mnemonicParsing="false" onAction="#onInscriptionButtonClick" text="S'inscrire" />
+                  <Label fx:id="error" text="erreur" textFill="RED" visible="false" />
+                    </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
