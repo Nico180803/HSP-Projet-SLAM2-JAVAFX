@@ -50,6 +50,8 @@ public class LoginController {
                     HelloApplication.changeScene("/appli/management/MedecinManagement.fxml");
                 }else if(utilisateur.getRole()== Role.ROLE_GESTIONNAIRE){
                     HelloApplication.changeScene("/appli/management/StockManagement.fxml");
+                }else if(utilisateur.getRole()== Role.ROLE_ADMIN){
+                    HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
                 }
 
             } else {
