@@ -33,6 +33,9 @@ public class Utilisateur {
         this.isActive = isActive;
     }
 
+    public Utilisateur(String text, String text1, String text2, String text3, String roleUser, int i) {
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" +

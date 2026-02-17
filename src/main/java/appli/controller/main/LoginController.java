@@ -2,6 +2,7 @@ package appli.controller.main;
 
 import appli.dao.principal.jdbc.UtilisateurDAO;
 import appli.main.HelloApplication;
+import appli.model.enums.Role;
 import appli.model.principal.Utilisateur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,14 +44,25 @@ public class LoginController {
             if (utilisateur != null) {
                 System.out.println("Connexion réussie pour : " + utilisateur.getNom());
                 SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
-                HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
+                if (utilisateur.getRole()== Role.ROLE_SECRETAIRE){
+                    HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
+                }else if (utilisateur.getRole()== Role.ROLE_MEDECIN){
+                    HelloApplication.changeScene("/appli/management/MedecinManagement.fxml");
+                }else if(utilisateur.getRole()== Role.ROLE_GESTIONNAIRE){
+                    HelloApplication.changeScene("/appli/management/StockManagement.fxml");
+                }else if(utilisateur.getRole()== Role.ROLE_ADMIN){
+                    HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
+                }
+
             } else {
                 System.out.println("Échec de la connexion. Email ou mot de passe incorrect.");
             }
         }
     }
 
-    public void onPageInscriptionButtonClick() {
+    public void onPageInscriptionButtonClick() throws IOException {
+        HelloApplication.changeScene("Inscription.fxml");
+        System.out.println("Vous êtes maintenant sur la page d'inscription");
     }
     public void onMdpOublieButtonClick(){
     }
