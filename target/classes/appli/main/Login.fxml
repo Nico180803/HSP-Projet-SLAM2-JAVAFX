@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.LoginController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0">
@@ -49,7 +50,7 @@
                   <Label text="Identifiant" />
                   <TextField fx:id="emailField" />
                   <Label text="Mot de passe" />
-                  <TextField fx:id="mdpField" />
+                  <PasswordField fx:id="mdpField" />
                   <Button fx:id="connexionButton" mnemonicParsing="false" onAction="#onConnexionButtonClick" text="Se connecter" />
                </children>
             </VBox>

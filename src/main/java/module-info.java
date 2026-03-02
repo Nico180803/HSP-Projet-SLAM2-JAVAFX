@@ -4,6 +4,7 @@ module appli.hsp_slam_jfx {
     requires java.sql;
     requires javafx.graphics;
     requires javafx.base;
+    requires spring.security.crypto;
 
 
     exports appli.main;
