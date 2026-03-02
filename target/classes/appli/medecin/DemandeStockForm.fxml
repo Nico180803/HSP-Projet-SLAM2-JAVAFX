@@ -30,6 +30,6 @@
 
 
     <!-- Bouton -->
-    <Button onAction="#onValiderFiche" styleClass="primary-button" text="Valider la demande'" />
+    <Button onAction="#onValiderFiche" styleClass="primary-button" text="Valider la demande" />
 
 </VBox>

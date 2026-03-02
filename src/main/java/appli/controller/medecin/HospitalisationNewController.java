@@ -1,5 +1,6 @@
 package appli.controller.medecin;
 
+import appli.controller.main.MainController;
 import appli.factory.DaoFactory;
 import appli.model.principal.Chambre;
 import appli.model.principal.DossierPriseEnCharge;
@@ -42,7 +43,6 @@ public class HospitalisationNewController {
 
         Hospitalisation hospitalisation = new Hospitalisation(dossier, chambre, debut, fin);
         hospitalisationService.add(hospitalisation);
-
-        System.out.println("Hospitalisation ajoutée");
+        MainController.getInstance().refreshMain();
     }
 }

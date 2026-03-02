@@ -20,11 +20,10 @@ public class MedecinController extends MainController{
         mainPane = contentPane;
         sidePage = testDroite;
         load("/appli/patient/TableDossier.fxml");
-        System.out.println("Fiches Patient cliqué");
     }
     public void onDossier(ActionEvent actionEvent) {
         load("/appli/patient/TableDossier.fxml");
-        System.out.println("Fiches Patient cliqué");
+        clearSide();
     }
 
     public void onDemandeDeStock(ActionEvent actionEvent) {
@@ -40,8 +39,8 @@ public class MedecinController extends MainController{
     }
     public void onOrdonnance(ActionEvent actionEvent) {
         load("/appli/medecin/OrdonnanceForm.fxml");
-        loadSide("/appli/medecin/HospitalisationNew.fxml");
-        System.out.println("Dossiers cliqué");
+        loadSide("/appli/medecin/OrdonnanceNew.fxml");
+        System.out.println("Ordonnance cliqué");
     }
 
 

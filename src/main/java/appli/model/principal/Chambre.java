@@ -20,11 +20,7 @@ public class Chambre {
 
     @Override
     public String toString() {
-        return "Chambre{" +
-                "id=" + id +
-                ", num='" + num + '\'' +
-                ", estOccupe=" + estOccupe +
-                '}';
+        return "Chambre " + num;
     }
 
     public int getId() {

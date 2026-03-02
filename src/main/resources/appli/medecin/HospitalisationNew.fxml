@@ -36,6 +36,6 @@
 
 
     <!-- Bouton -->
-    <Button onAction="#onValiderFiche" styleClass="primary-button" text="Valider l'hospitalisation'" />
+    <Button onAction="#onValiderFiche" styleClass="primary-button" text="Valider l'hospitalisation" />
 
 </VBox>

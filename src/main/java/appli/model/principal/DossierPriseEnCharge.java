@@ -37,15 +37,8 @@ public class DossierPriseEnCharge {
 
     @Override
     public String toString() {
-        return "DossierPriseEnCharge{" +
-                "id=" + id +
-                ", dateArrive=" + dateArrive +
-                ", description='" + description + '\'' +
-                ", gravite=" + gravite +
-                ", patient=" + patient +
-                ", createdBy=" + createdBy +
-                ", estTraite=" + estTraite +
-                '}';
+        String nomPatient = (patient != null) ? patient.getNom() + " " + patient.getPrenom() : "Inconnu";
+        return "Dossier #" + id + " - " + nomPatient;
     }
 
     public int getId() {

@@ -18,9 +18,11 @@ public abstract class MainController {
 
     protected Pane mainPane;
     protected Pane sidePage;
+    private String currentMainPath;
 
     public void load(String path){
         try {
+            currentMainPath = path;
             Parent view = FXMLLoader.load(getClass().getResource(path));
             mainPane.getChildren().setAll(view);
         }catch (Exception e){
@@ -37,5 +39,14 @@ public abstract class MainController {
         }
 
     }
-}
 
+    public void clearSide(){
+        sidePage.getChildren().clear();
+    }
+
+    public void refreshMain(){
+        if (currentMainPath != null) {
+            load(currentMainPath);
+        }
+    }
+}
