@@ -42,6 +42,18 @@ public class Hospitalisation {
         return id;
     }
 
+    public String getRefDossier() {
+        if (dossierPriseEnCharge != null && dossierPriseEnCharge.getPatient() != null) {
+            FichePatient patient = dossierPriseEnCharge.getPatient();
+            return patient.getNom() + " " + patient.getPrenom();
+        }
+        return "";
+    }
+
+    public String getRefChambre() {
+        return chambre != null ? chambre.getNum() : "";
+    }
+
     public DossierPriseEnCharge getDossierPriseEnCharge() {
         return dossierPriseEnCharge;
     }

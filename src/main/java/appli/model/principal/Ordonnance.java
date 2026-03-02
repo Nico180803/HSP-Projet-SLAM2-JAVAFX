@@ -34,6 +34,14 @@ public class Ordonnance {
         return id;
     }
 
+    public String getRefDossier() {
+        if (dossierPriseEnCharge != null && dossierPriseEnCharge.getPatient() != null) {
+            FichePatient patient = dossierPriseEnCharge.getPatient();
+            return patient.getNom() + " " + patient.getPrenom();
+        }
+        return "";
+    }
+
     public LocalDateTime getDateTimeOrdonnance() {
         return dateTimeOrdonnance;
     }

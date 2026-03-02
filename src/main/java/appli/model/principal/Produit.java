@@ -28,13 +28,7 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{" +
-                "id=" + id +
-                ", libelle='" + libelle + '\'' +
-                ", description='" + description + '\'' +
-                ", dangerosite=" + dangerosite +
-                ", quantite=" + quantite +
-                '}';
+        return libelle;
     }
 
     public int getId() {

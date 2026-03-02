@@ -47,6 +47,18 @@ public class DemandeProduit {
         return id;
     }
 
+    public String getRefMedecin() {
+        return medecinDemandeur != null ? medecinDemandeur.getNom() + " " + medecinDemandeur.getPrenom() : "";
+    }
+
+    public String getRefProduit() {
+        return produit != null ? produit.getLibelle() : "";
+    }
+
+    public int getQuantiteDemandee() {
+        return quantite;
+    }
+
     public Utilisateur getMedecinDemandeur() {
         return medecinDemandeur;
     }
