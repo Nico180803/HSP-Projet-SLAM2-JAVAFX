@@ -1,4 +1,5 @@
 package appli.controller.main;
+
 import appli.dao.principal.jdbc.UtilisateurDAO;
 import appli.main.HelloApplication;
 import appli.model.enums.Role;
@@ -6,12 +7,14 @@ import appli.model.principal.Utilisateur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.IOException;
 
 public class InscriptionController {
 
     private final UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @FXML
     private TextField nomField;
@@ -57,23 +60,30 @@ public class InscriptionController {
             error.setText("Tous les champs doivent être remplis !");
             return;
         }
+
         if (!mdpField.getText().equals(mdpDeuxField.getText())) {
             error.setText("Les mots de passe ne correspondent pas !");
             return;
         }
+
         if (utilisateurDAO.getByEmail(emailField.getText()) != null) {
             error.setText("Cet email est déjà utilisé !");
             return;
         }
+
+        String motDePasseHashe = passwordEncoder.encode(mdpField.getText());
+
         Utilisateur utilisateur = new Utilisateur(
                 nomField.getText(),
                 prenomField.getText(),
                 emailField.getText(),
-                mdpField.getText(),
+                motDePasseHashe,
                 roleBox.getValue(),
                 true
         );
+
         utilisateurDAO.insert(utilisateur);
+        error.setText("Inscription réussie !");
     }
 
     @FXML
