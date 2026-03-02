@@ -16,39 +16,25 @@ public class InscriptionController {
     private final UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @FXML
-    private TextField nomField;
+    @FXML private TextField nomField;
+    @FXML private TextField prenomField;
+    @FXML private TextField emailField;
+    @FXML private PasswordField mdpField;
+    @FXML private PasswordField mdpDeuxField;
+    @FXML private ChoiceBox<Role> roleBox;
+    @FXML private Label error;
+    @FXML private Button inscriptionButton;
+    @FXML private Button pageConnexionButton;
 
     @FXML
-    private TextField prenomField;
-
-    @FXML
-    private TextField emailField;
-
-    @FXML
-    private TextField mdpField;
-
-    @FXML
-    private TextField mdpDeuxField;
-
-    @FXML
-    private ChoiceBox<Role> roleBox;
-
-    @FXML
-    private Label error;
-
-    @FXML
-    private Button inscriptionButton;
-
-    @FXML
-    private Button pageConnexionButton;
-
     public void initialize() {
         roleBox.getItems().addAll(Role.values());
     }
 
     @FXML
     void onInscriptionButtonClick(ActionEvent event) {
+        // Réinitialise le label d'erreur
+        error.setVisible(false);
 
         if (nomField.getText().isEmpty() ||
                 prenomField.getText().isEmpty() ||
@@ -58,16 +44,19 @@ public class InscriptionController {
                 roleBox.getValue() == null) {
 
             error.setText("Tous les champs doivent être remplis !");
+            error.setVisible(true);
             return;
         }
 
         if (!mdpField.getText().equals(mdpDeuxField.getText())) {
             error.setText("Les mots de passe ne correspondent pas !");
+            error.setVisible(true);
             return;
         }
 
         if (utilisateurDAO.getByEmail(emailField.getText()) != null) {
             error.setText("Cet email est déjà utilisé !");
+            error.setVisible(true);
             return;
         }
 
@@ -83,7 +72,9 @@ public class InscriptionController {
         );
 
         utilisateurDAO.insert(utilisateur);
+
         error.setText("Inscription réussie !");
+        error.setVisible(true);
     }
 
     @FXML
