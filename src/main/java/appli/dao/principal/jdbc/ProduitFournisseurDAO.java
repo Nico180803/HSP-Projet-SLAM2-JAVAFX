@@ -124,7 +124,7 @@ public class ProduitFournisseurDAO implements GenericDAO<ProduitFournisseur> {
     }
 
     public ProduitFournisseur moinsCher(int refProduit) {
-        this.sql = "SELECT * FROM "+TABLE+" WHERE"+REF_PRODUIT +"= ? ORDER BY"+PRIX+"ASC LIMIT 1";
+        this.sql = "SELECT * FROM "+TABLE+" WHERE "+REF_PRODUIT+" = ? ORDER BY "+PRIX+" ASC LIMIT 1";
 
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);

@@ -72,7 +72,7 @@ public class CommandeDAO implements GenericDAO<Commande> {
 
     @Override
     public void insert(Commande commande) {
-        this.sql = "INSERT INTO "+ TABLE+"("+REF_UTILISATEUR+","+REF_PRODUIT_FOURNISSEUR+","+QUANTITE+","+PRIX+") VALUES (?,?,?)";
+        this.sql = "INSERT INTO "+ TABLE+"("+REF_UTILISATEUR+","+REF_PRODUIT_FOURNISSEUR+","+QUANTITE+","+PRIX+") VALUES (?,?,?,?)";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
             mappingBdd(commande, statement);
