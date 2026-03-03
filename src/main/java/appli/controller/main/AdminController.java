@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import session.SessionUtilisateur;
 
 import java.io.IOException;
 
@@ -94,5 +95,11 @@ public class AdminController extends MainController {
 
     public void onPageInscriptionButtonClick() throws IOException {
         HelloApplication.changeScene("Inscription.fxml");
+    }
+
+    public void onDeconnexionButtonClick(ActionEvent event) throws IOException {
+        SessionUtilisateur.getInstance().deconnecter();
+        HelloApplication.changeScene("/appli/main/Login.fxml");
+        System.out.println("Déconnexion et retour à l'accueil");
     }
 }
