@@ -95,4 +95,9 @@ public class AdminController extends MainController {
     public void onPageInscriptionButtonClick() throws IOException {
         HelloApplication.changeScene("Inscription.fxml");
     }
+
+    @FXML
+    private void onHistoriqueConnexion() throws IOException {
+        HelloApplication.changeScene("/appli/HistoriqueConnexion.fxml");
+    }
 }
