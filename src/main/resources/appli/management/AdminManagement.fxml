@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="appli.controller.main.AdminController"
-            prefWidth="900" prefHeight="600">
+<BorderPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.AdminController">
 
     <!-- Menu gauche combiné -->
     <left>
         <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #2c3e50;">
 
             <!-- Médecin -->
-            <Label text="Médecin" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
-            <Button text="Dossier des patients" onAction="#onDossierMedecin"/>
-            <Button text="Demande de stock" onAction="#onDemandeDeStock"/>
-            <Button text="Hospitalisation" onAction="#onHospitalisation"/>
-            <Button text="Ordonnance" onAction="#onOrdonnance"/>
+            <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Médecin" />
+            <Button onAction="#onDossierMedecin" text="Dossier des patients" />
+            <Button onAction="#onDemandeDeStock" text="Demande de stock" />
+            <Button onAction="#onHospitalisation" text="Hospitalisation" />
+            <Button onAction="#onOrdonnance" text="Ordonnance" />
 
             <!-- Secrétariat -->
-            <Label text="Secrétariat" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
-            <Button text="Fiches Patients" onAction="#onFichesPatients"/>
-            <Button text="Dossiers" onAction="#onDossierSecretaire"/>
+            <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Secrétariat" />
+            <Button onAction="#onFichesPatients" text="Fiches Patients" />
+            <Button onAction="#onDossierSecretaire" text="Dossiers" />
 
             <!-- Stock -->
-            <Label text="Stock" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
-            <Button text="Liste Stock" onAction="#onListeStock"/>
-            <Button text="Validation/Refus" onAction="#onValidRefus"/>
-            <Button text="Fournisseur" onAction="#onFournisseur"/>
+            <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Stock" />
+            <Button onAction="#onListeStock" text="Liste Stock" />
+            <Button onAction="#onValidRefus" text="Validation/Refus" />
+            <Button onAction="#onFournisseur" text="Fournisseur" />
+         <Label layoutX="25.0" layoutY="292.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Administration" />
+         <Button fx:id="pageInscription" mnemonicParsing="false" onAction="#onPageInscriptionButtonClick" text="Créer un utilisateur" />
         </VBox>
     </left>
 
@@ -45,14 +45,14 @@
 
     <!-- Zone droite (optionnelle, pour Médecin et Secrétariat) -->
     <right>
-        <AnchorPane fx:id="testDroite"/>
+        <AnchorPane fx:id="testDroite" />
     </right>
 
     <!-- Bas : label utilisateur connecté -->
     <bottom>
         <HBox style="-fx-padding: 10; -fx-background-color: #bdc3c7;">
-            <Label text="Connecté : "/>
-            <Label fx:id="userLabel" text="Invité"/>
+            <Label text="Connecté : " />
+            <Label fx:id="userLabel" text="Invité" />
         </HBox>
     </bottom>
 

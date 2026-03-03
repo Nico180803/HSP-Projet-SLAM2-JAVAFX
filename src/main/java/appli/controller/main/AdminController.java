@@ -1,10 +1,13 @@
 package appli.controller.main;
 
+import appli.main.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
 
 public class AdminController extends MainController {
 
@@ -87,5 +90,9 @@ public class AdminController extends MainController {
     public void onFournisseur(ActionEvent event) {
         load("/appli/stock/TableFournisseur.fxml");
         System.out.println("Stock: Fournisseur cliqué");
+    }
+
+    public void onPageInscriptionButtonClick() throws IOException {
+        HelloApplication.changeScene("Inscription.fxml");
     }
 }

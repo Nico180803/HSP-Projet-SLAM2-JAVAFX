@@ -72,10 +72,6 @@ public class LoginController {
         }
     }
 
-    public void onPageInscriptionButtonClick() throws IOException {
-        HelloApplication.changeScene("Inscription.fxml");
-    }
-
     public void onMdpOublieButtonClick() {
     }
 
