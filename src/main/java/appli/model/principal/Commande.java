@@ -61,4 +61,18 @@ public class Commande {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+
+    public String getRefUtilisateur() {
+        return utilisateur != null ? utilisateur.getNom() + " " + utilisateur.getPrenom() : "";
+    }
+
+    public String getRefProduit() {
+        return produitFournisseur != null && produitFournisseur.getProduit() != null
+                ? produitFournisseur.getProduit().getLibelle() : "";
+    }
+
+    public String getRefFournisseur() {
+        return produitFournisseur != null && produitFournisseur.getFournisseur() != null
+                ? produitFournisseur.getFournisseur().getNom() : "";
+    }
 }

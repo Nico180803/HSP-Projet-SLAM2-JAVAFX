@@ -29,7 +29,7 @@ public class CommandeDAO implements GenericDAO<Commande> {
     @Override
     public List<Commande> getAll() {
         List<Commande> commandes = new ArrayList<>();
-        this.sql = "SELECT * FROM" +TABLE;
+        this.sql = "SELECT * FROM " + TABLE;
         try (PreparedStatement statement = db.prepareStatement(this.sql)) {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -50,7 +50,7 @@ public class CommandeDAO implements GenericDAO<Commande> {
 
     @Override
     public Commande getById(int id) {
-        this.sql = "SELECT * FROM" +TABLE +" WHERE id=?";
+        this.sql = "SELECT * FROM " + TABLE + " WHERE id=?";
         try {
             PreparedStatement statement = db.prepareStatement(this.sql);
             statement.setInt(1, id);

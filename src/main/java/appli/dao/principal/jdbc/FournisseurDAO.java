@@ -46,6 +46,22 @@ public class FournisseurDAO implements GenericDAO<Fournisseur> {
 
     @Override
     public Fournisseur getById(int id) {
+        this.sql = "SELECT * FROM " + TABLE + " WHERE id = ?";
+        try {
+            PreparedStatement statement = db.prepareStatement(this.sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return new Fournisseur(
+                        rs.getInt("id"),
+                        rs.getString(NOM),
+                        rs.getString(EMAIL),
+                        rs.getString(TEL)
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la récupération du fournisseur");
+        }
         return null;
     }
 
