@@ -19,6 +19,7 @@ module appli.hsp_slam_jfx {
     opens appli to javafx.fxml;
     opens appli.model.principal to javafx.base;
     opens appli.model.enums to javafx.base;
+    opens appli.controller to javafx.fxml;
 
 
 
