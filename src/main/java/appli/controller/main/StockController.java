@@ -1,10 +1,14 @@
 package appli.controller.main;
 
+import appli.main.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import session.SessionUtilisateur;
+
+import java.io.IOException;
 
 public class StockController extends MainController {
 
@@ -18,6 +22,12 @@ public class StockController extends MainController {
     public void initialize() {
         mainPane = contentPane;
         sidePage = testDroite;
+    }
+
+    public void onDeconnexionButtonClick(ActionEvent event) throws IOException {
+        SessionUtilisateur.getInstance().deconnecter();
+        HelloApplication.changeScene("/appli/main/Login.fxml");
+        System.out.println("Déconnexion et retour à l'accueil");
     }
 
     @FXML
@@ -36,5 +46,11 @@ public class StockController extends MainController {
     public void onFournisseur(ActionEvent event) {
         load("/appli/stock/TableFournisseur.fxml");
         System.out.println("Table fournisseur cliqué");
+    }
+
+    @FXML
+    void onCommande(ActionEvent event) {
+        load("/appli/stock/TableCommande.fxml");
+        System.out.println("Table Commande cliqué");
     }
 }

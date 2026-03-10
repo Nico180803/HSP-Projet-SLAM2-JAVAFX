@@ -15,4 +15,16 @@ public class ProduitService {
         produits = FXCollections.observableArrayList(produitDAO.getAll());
         return produits;
     }
+
+    public void insert(Produit produit) {
+        GenericDAO<Produit> produitDAO = DaoFactory.getProduitDAO();
+        assert produitDAO != null;
+        produitDAO.insert(produit);
+    }
+
+    public void update(Produit produit) {
+        GenericDAO<Produit> produitDAO = DaoFactory.getProduitDAO();
+        assert produitDAO != null;
+        produitDAO.update(produit);
+    }
 }

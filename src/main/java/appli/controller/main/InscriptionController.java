@@ -23,8 +23,6 @@ public class InscriptionController {
     @FXML private PasswordField mdpDeuxField;
     @FXML private ChoiceBox<Role> roleBox;
     @FXML private Label error;
-    @FXML private Button inscriptionButton;
-    @FXML private Button pageConnexionButton;
 
     @FXML
     public void initialize() {
@@ -33,7 +31,6 @@ public class InscriptionController {
 
     @FXML
     void onInscriptionButtonClick(ActionEvent event) {
-        // Réinitialise le label d'erreur
         error.setVisible(false);
 
         if (nomField.getText().isEmpty() ||

@@ -103,4 +103,11 @@ public class DaoFactory {
         return null;
     }
 
+    public static CommandeDAO getCommandeDAO(){
+        if(ENVIRONEMENT.equals("JDBC")){
+            return new CommandeDAO();
+        }
+        return null;
+    }
+
 }
