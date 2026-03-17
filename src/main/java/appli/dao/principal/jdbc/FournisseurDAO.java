@@ -6,7 +6,9 @@ import appli.model.principal.Fournisseur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FournisseurDAO implements GenericDAO<Fournisseur> {
@@ -21,11 +23,45 @@ public class FournisseurDAO implements GenericDAO<Fournisseur> {
 
     @Override
     public List<Fournisseur> getAll() {
-        return List.of();
+        List<Fournisseur> fournisseurs = new ArrayList<>();
+
+        this.sql = "SELECT * FROM " + TABLE;
+        try {
+            PreparedStatement statement = db.prepareStatement(this.sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Fournisseur f = new Fournisseur(
+                        rs.getInt("id"),
+                        rs.getString(NOM),
+                        rs.getString(EMAIL),
+                        rs.getString(TEL)
+                );
+                fournisseurs.add(f);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la récupération des fournisseurs");
+        }
+        return fournisseurs;
     }
 
     @Override
     public Fournisseur getById(int id) {
+        this.sql = "SELECT * FROM " + TABLE + " WHERE id = ?";
+        try {
+            PreparedStatement statement = db.prepareStatement(this.sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return new Fournisseur(
+                        rs.getInt("id"),
+                        rs.getString(NOM),
+                        rs.getString(EMAIL),
+                        rs.getString(TEL)
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la récupération du fournisseur");
+        }
         return null;
     }
 

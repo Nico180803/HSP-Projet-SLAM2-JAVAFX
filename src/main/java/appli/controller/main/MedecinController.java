@@ -1,10 +1,14 @@
 package appli.controller.main;
 
+import appli.main.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import session.SessionUtilisateur;
+
+import java.io.IOException;
 
 public class MedecinController extends MainController{
 
@@ -20,6 +24,11 @@ public class MedecinController extends MainController{
         mainPane = contentPane;
         sidePage = testDroite;
         load("/appli/patient/TableDossier.fxml");
+    }
+    public void onDeconnexionButtonClick(ActionEvent event) throws IOException {
+        SessionUtilisateur.getInstance().deconnecter();
+        HelloApplication.changeScene("/appli/main/Login.fxml");
+        System.out.println("Déconnexion et retour à l'accueil");
     }
     public void onDossier(ActionEvent actionEvent) {
         load("/appli/patient/TableDossier.fxml");

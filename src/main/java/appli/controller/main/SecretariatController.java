@@ -1,10 +1,14 @@
 package appli.controller.main;
 
+import appli.main.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import session.SessionUtilisateur;
+
+import java.io.IOException;
 
 public class SecretariatController extends MainController{
 
@@ -21,6 +25,12 @@ public class SecretariatController extends MainController{
         sidePage = testDroite;
         load("/appli/patient/TableFichePatient.fxml");
         loadSide("/appli/patient/FormFichePatient.fxml");
+    }
+
+    public void onDeconnexionButtonClick(ActionEvent event) throws IOException {
+        SessionUtilisateur.getInstance().deconnecter();
+        HelloApplication.changeScene("/appli/main/Login.fxml");
+        System.out.println("Déconnexion et retour à l'accueil");
     }
 
     public void onFichesPatients(ActionEvent actionEvent) {

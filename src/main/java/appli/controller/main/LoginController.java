@@ -68,12 +68,8 @@ public class LoginController {
         } else if (utilisateur.getRole() == Role.ROLE_GESTIONNAIRE) {
             HelloApplication.changeScene("/appli/management/StockManagement.fxml");
         } else if (utilisateur.getRole() == Role.ROLE_ADMIN) {
-            HelloApplication.changeScene("/appli/management/SecretariatManagement.fxml");
+            HelloApplication.changeScene("/appli/management/AdminManagement.fxml");
         }
-    }
-
-    public void onPageInscriptionButtonClick() throws IOException {
-        HelloApplication.changeScene("Inscription.fxml");
     }
 
     public void onMdpOublieButtonClick() {

@@ -123,6 +123,27 @@ public class ProduitFournisseurDAO implements GenericDAO<ProduitFournisseur> {
         }
     }
 
+    public ProduitFournisseur moinsCher(int refProduit) {
+        this.sql = "SELECT * FROM "+TABLE+" WHERE "+REF_PRODUIT+" = ? ORDER BY "+PRIX+" ASC LIMIT 1";
+
+        try {
+            PreparedStatement statement = db.prepareStatement(this.sql);
+            statement.setInt(1, refProduit);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+                return new ProduitFournisseur(
+                        rs.getInt("id"),
+                        produitDAO.getById(rs.getInt(REF_PRODUIT)),
+                        fournisseurDAO.getById(rs.getInt(REF_FOURNISSEUR)),
+                        rs.getDouble(PRIX)
+                );
+            }
+        }catch (SQLException e){
+            System.out.println("Erreur lors de la récupération du produitFournisseur le moins cher");
+        }
+        return null;
+    }
+
     private void mappingBdd(ProduitFournisseur toUpdate, PreparedStatement statement) throws SQLException {
         statement.setInt(1, toUpdate.getProduit().getId());
         statement.setInt(2, toUpdate.getFournisseur().getId());
