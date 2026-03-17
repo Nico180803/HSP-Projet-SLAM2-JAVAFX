@@ -4,15 +4,6 @@
 
 ---
 
-README_JavaFX.md
-4 Ko
-﻿
-# 🏥 HSP — Projet SLAM 2 (JavaFX)
-
-> Application de bureau développée dans le cadre de l'épreuve **E4 du BTS SIO option SLAM**, session **2025–2026**.
-
----
-
 ## 📋 Présentation
 
 **HSP** est une application de bureau JavaFX permettant la gestion d'un service d'urgence d'un établissement de santé (clinique/hôpital). Elle offre une interface graphique pour gérer les patients, les rendez-vous et les stocks.
