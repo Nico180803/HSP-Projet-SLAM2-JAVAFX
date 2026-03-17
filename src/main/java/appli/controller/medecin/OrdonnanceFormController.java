@@ -4,6 +4,8 @@ import appli.model.principal.Ordonnance;
 import appli.service.OrdonnanceService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,6 +41,24 @@ public class OrdonnanceFormController {
             //Ajout de la colonne dans notre tableau
             ordonnanceTableView.getColumns().add(maCol);
         }
+        TableColumn<Ordonnance, Void> colSupprimer = new TableColumn<>("Actions");
+        colSupprimer.setCellFactory(col -> new TableCell<>() {
+            private final Button btn = new Button("Supprimer");
+            {
+                btn.setOnAction(event -> {
+                    Ordonnance item = getTableView().getItems().get(getIndex());
+                    ordonnanceService.delete(item.getId());
+                    ordonnances.remove(item);
+                });
+            }
+            @Override
+            protected void updateItem(Void unused, boolean empty) {
+                super.updateItem(unused, empty);
+                setGraphic(empty ? null : btn);
+            }
+        });
+        ordonnanceTableView.getColumns().add(colSupprimer);
+
         ordonnanceTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
     }
 

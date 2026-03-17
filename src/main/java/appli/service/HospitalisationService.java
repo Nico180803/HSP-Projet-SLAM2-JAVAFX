@@ -22,4 +22,11 @@ public class HospitalisationService {
         assert hospitalisationDAO != null;
         hospitalisationDAO.insert(hospitalisation);
     }
+
+    public void delete(int id){
+        GenericDAO<Hospitalisation> hospitalisationDAO = DaoFactory.getHospitalisationDAO();
+
+        assert hospitalisationDAO != null;
+        hospitalisationDAO.delete(id);
+    }
 }
