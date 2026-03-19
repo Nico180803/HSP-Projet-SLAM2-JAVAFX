@@ -48,6 +48,24 @@ public class HospitalisationFormController implements Initializable {
             //Ajout de la colonne dans notre tableau
             hospitalisationTableView.getColumns().add(maCol);
         }
+        TableColumn<Hospitalisation, Void> colSupprimer = new TableColumn<>("Actions");
+        colSupprimer.setCellFactory(col -> new TableCell<>() {
+            private final Button btn = new Button("Supprimer");
+            {
+                btn.setOnAction(event -> {
+                    Hospitalisation item = getTableView().getItems().get(getIndex());
+                    hospitalisationService.delete(item.getId());
+                    hospitalisations.remove(item);
+                });
+            }
+            @Override
+            protected void updateItem(Void unused, boolean empty) {
+                super.updateItem(unused, empty);
+                setGraphic(empty ? null : btn);
+            }
+        });
+        hospitalisationTableView.getColumns().add(colSupprimer);
+
         hospitalisationTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
     }
 }

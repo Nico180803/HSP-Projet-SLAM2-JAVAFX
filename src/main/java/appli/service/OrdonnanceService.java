@@ -23,4 +23,11 @@ public class OrdonnanceService {
         assert ordonnanceDAO != null;
         ordonnanceDAO.insert(ordonnance);
     }
+
+    public void delete(int id){
+        GenericDAO<Ordonnance> ordonnanceDAO = DaoFactory.getOrdonnanceDAO();
+
+        assert ordonnanceDAO != null;
+        ordonnanceDAO.delete(id);
+    }
 }

@@ -7,6 +7,8 @@ import appli.service.HospitalisationService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -48,6 +50,24 @@ public class TableauDemandeStockController implements Initializable {
             //Ajout de la colonne dans notre tableau
             tableauDemande.getColumns().add(maCol);
         }
+        TableColumn<DemandeProduit, Void> colSupprimer = new TableColumn<>("Actions");
+        colSupprimer.setCellFactory(col -> new TableCell<>() {
+            private final Button btn = new Button("Supprimer");
+            {
+                btn.setOnAction(event -> {
+                    DemandeProduit item = getTableView().getItems().get(getIndex());
+                    demandeService.delete(item.getId());
+                    demandeProduits.remove(item);
+                });
+            }
+            @Override
+            protected void updateItem(Void unused, boolean empty) {
+                super.updateItem(unused, empty);
+                setGraphic(empty ? null : btn);
+            }
+        });
+        tableauDemande.getColumns().add(colSupprimer);
+
         tableauDemande.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
     }
 }

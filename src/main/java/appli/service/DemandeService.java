@@ -22,4 +22,11 @@ public class DemandeService {
         assert demandeDAO != null;
         demandeDAO.insert(demandeProduit);
     }
+
+    public void delete(int id){
+        GenericDAO<DemandeProduit> demandeDAO = DaoFactory.getDemandeProduitDAO();
+
+        assert demandeDAO != null;
+        demandeDAO.delete(id);
+    }
 }

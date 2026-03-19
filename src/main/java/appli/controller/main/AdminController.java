@@ -36,7 +36,9 @@ public class AdminController extends MainController {
         HelloApplication.changeScene("Inscription.fxml");
     }
 
-    public void onHistoriqueConnexion(ActionEvent actionEvent) {
+    @FXML
+    public void onHistoriqueConnexion(ActionEvent actionEvent) throws IOException {
+        HelloApplication.changeScene("/appli/admin/HistoriqueConnexion.fxml");
     }
 
     public void onDeconnexionButtonClick(ActionEvent event) throws IOException {
