@@ -2,6 +2,7 @@ package appli.model.logs;
 
 public class TypeAction {
 
+    public static final TypeAction CONNEXION = null;
     private int id;
     private String action;
     private String description;

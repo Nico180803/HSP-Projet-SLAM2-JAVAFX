@@ -1,16 +1,23 @@
 package appli.controller.main;
 
+import appli.model.enums.Role;
 import appli.dao.principal.jdbc.UtilisateurDAO;
 import appli.main.HelloApplication;
-import appli.model.enums.Role;
 import appli.model.principal.Utilisateur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import session.SessionUtilisateur;
+import java.io.IOException;
+import appli.dao.logs.jdbc.LogsUtilisateurDAO;
+import appli.model.logs.LogsUtilisateur;
+import appli.model.logs.TableCible;
+import appli.model.logs.TypeAction;
+import java.time.LocalDateTime;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.IOException;
 
@@ -41,6 +48,7 @@ public class LoginController {
 
         String email = emailField.getText();
         String password = mdpField.getText();
+
 
         if (email.isEmpty() || password.isEmpty()) {
             error.setText("Tous les champs doivent être remplis !");

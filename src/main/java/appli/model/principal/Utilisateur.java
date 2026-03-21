@@ -100,4 +100,7 @@ public class Utilisateur {
     public void setActive(boolean active) {
         isActive = active;
     }
+
+    public void setId(int refUser) {
+    }
 }

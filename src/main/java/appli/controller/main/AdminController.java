@@ -7,6 +7,17 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import session.SessionUtilisateur;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import appli.controller.HistoriqueConnexionController;
+import appli.dao.logs.jdbc.LogsUtilisateurDAO;
+import appli.model.logs.LogsUtilisateur;
+import appli.model.logs.HistoriqueConnexion;
 
 import java.io.IOException;
 
@@ -99,8 +110,34 @@ public class AdminController extends MainController {
 
     @FXML
     public void onHistoriqueConnexion(ActionEvent actionEvent) throws IOException {
-        HelloApplication.changeScene("/appli/admin/HistoriqueConnexion.fxml");
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/appli/admin/HistoriqueConnexion.fxml"));
+        Parent root = loader.load();
+
+        HistoriqueConnexionController controller = loader.getController();
+
+        LogsUtilisateurDAO logsDAO = new LogsUtilisateurDAO();
+        ObservableList<HistoriqueConnexion> data = FXCollections.observableArrayList();
+
+        for (LogsUtilisateur log : logsDAO.getAll()) {
+            String utilisateur = (log.getUtilisateur() != null) ? String.valueOf(log.getUtilisateur().getId()) : "Inconnu";
+
+            data.add(new HistoriqueConnexion(
+                    (log.getDateAction() != null) ? log.getDateAction().toString() : "",
+                    utilisateur,
+                    (log.getTypeAction() != null) ? log.getTypeAction().toString() : "",
+                    (log.getDetails() != null) ? log.getDetails() : ""
+            ));
+        }
+
+        controller.setData(data);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
+
 
     public void onDeconnexionButtonClick(ActionEvent event) throws IOException {
         SessionUtilisateur.getInstance().deconnecter();

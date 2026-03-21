@@ -34,8 +34,6 @@ public class HistoriqueConnexionController {
         colDescription.setCellValueFactory(data ->
                 new SimpleStringProperty(data.getValue().getDescription()));
 
-        // ⚠️ Pas de fake data ici
-        // Les données viendront du DAO
     }
 
     public void setData(ObservableList<HistoriqueConnexion> data) {
