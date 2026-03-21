@@ -44,7 +44,7 @@
                 <VBox prefHeight="371.0" prefWidth="720.0" spacing="5.0" BorderPane.alignment="CENTER">
                     <children>
       
-                        <Label text="Page d'inscription">
+                        <Label text="Page de création de compte">
                             <font>
                                 <Font size="16.0" />
                             </font>

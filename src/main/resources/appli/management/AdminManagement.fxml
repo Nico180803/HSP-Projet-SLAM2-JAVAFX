@@ -14,28 +14,10 @@
     <left>
         <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #2c3e50;">
          <Button fx:id="deconnexionButton" mnemonicParsing="false" onAction="#onDeconnexionButtonClick" text="Déconnexion" />
-
-            <!-- Médecin -->
-            <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Médecin" />
-            <Button onAction="#onDossierMedecin" text="Dossier des patients" />
-            <Button onAction="#onDemandeDeStock" text="Demande de stock" />
-            <Button onAction="#onHospitalisation" text="Hospitalisation" />
-            <Button onAction="#onOrdonnance" text="Ordonnance" />
-
-            <!-- Secrétariat -->
-            <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Secrétariat" />
-            <Button onAction="#onFichesPatients" text="Fiches Patients" />
-            <Button onAction="#onDossierSecretaire" text="Dossiers" />
-
-            <!-- Stock -->
-            <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Stock" />
-            <Button onAction="#onListeStock" text="Liste Stock" />
-            <Button onAction="#onValidRefus" text="Validation/Refus" />
-            <Button onAction="#onFournisseur" text="Fournisseur" />
          <Label layoutX="25.0" layoutY="292.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Administration" />
          <Button fx:id="pageInscription" mnemonicParsing="false" onAction="#onPageInscriptionButtonClick" text="Créer un utilisateur" />
-            <Button text="Historique des connexions"
-                    onAction="#onHistoriqueConnexion" />
+         <Button fx:id="tableUtilisateur" mnemonicParsing="false" onAction="#onTableUtilisateurButtonClick" text="Liste des utilisateurs" />
+            <Button onAction="#onHistoriqueConnexion" text="Historique des connexions" />
         </VBox>
     </left>
 

@@ -1,18 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.stock.TableProduitController">
+    <HBox AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" spacing="15">
+        <!-- Tableau à gauche -->
+        <TableView fx:id="tableauProduit" HBox.hgrow="ALWAYS" />
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.stock.TableProduitController">
-    <TableView fx:id="tableauProduit"
-               layoutX="10"
-               layoutY="10"
-               prefWidth="900"
-               prefHeight="500"
-               AnchorPane.topAnchor="10"
-               AnchorPane.bottomAnchor="10"
-               AnchorPane.leftAnchor="10"
-               AnchorPane.rightAnchor="10" />
+        <!-- Panneau droit -->
+        <VBox spacing="20" prefWidth="280" minWidth="280">
+            <padding><Insets top="5" right="5" bottom="5" left="5" /></padding>
+
+            <!-- Section : Ajouter un produit -->
+            <Label text="Ajouter un produit" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+            <VBox spacing="8">
+                <Label text="Libellé" />
+                <TextField fx:id="fieldLibelle" promptText="Libellé du produit" />
+
+                <Label text="Description" />
+                <TextField fx:id="fieldDescription" promptText="Description du produit" />
+
+                <Label text="Dangerosité (1-5)" />
+                <ComboBox fx:id="comboDangerosite" promptText="Niveau" maxWidth="Infinity" />
+
+                <Label text="Quantité" />
+                <Spinner fx:id="spinnerQuantiteAjout" editable="true" maxWidth="Infinity" />
+
+                <Button fx:id="btnAjouter" text="Ajouter" onAction="#onAjouterProduit" maxWidth="Infinity"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+            </VBox>
+
+            <Separator />
+
+            <!-- Section : Réduire la quantité -->
+            <Label text="Modifier la quantité" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+            <VBox spacing="8">
+                <Label text="Sélectionnez un produit dans le tableau" style="-fx-font-style: italic; -fx-text-fill: grey;" />
+
+                <Label fx:id="labelProduitSelectionne" text="Aucun produit sélectionné" />
+
+                <Label text="Quantité à retirer" />
+                <Spinner fx:id="spinnerQuantiteRetrait" editable="true" maxWidth="Infinity" />
+
+                <Button fx:id="btnReduire" text="Réduire la quantité" onAction="#onReduireQuantite" maxWidth="Infinity"
+                        style="-fx-background-color: #F44336; -fx-text-fill: white;" />
+            </VBox>
+        </VBox>
+    </HBox>
 </AnchorPane>
