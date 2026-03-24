@@ -53,4 +53,11 @@ public class StockController extends MainController {
         load("/appli/stock/TableCommande.fxml");
         System.out.println("Table Commande cliqué");
     }
+
+    @FXML
+    void onProduitFournisseur(ActionEvent event) {
+        load("/appli/stock/TableProduitFournisseur.fxml");
+        System.out.println("Table Produit Fournisseur cliqué");
+    }
+
 }

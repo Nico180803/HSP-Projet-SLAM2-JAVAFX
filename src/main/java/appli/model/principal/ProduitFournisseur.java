@@ -52,6 +52,14 @@ public class ProduitFournisseur {
         this.fournisseur = fournisseur;
     }
 
+    public String getRefProduit() {
+        return produit != null ? produit.getLibelle() : "";
+    }
+
+    public String getRefFournisseur() {
+        return fournisseur != null ? fournisseur.getNom() : "";
+    }
+
     public double getPrix() {
         return prix;
     }

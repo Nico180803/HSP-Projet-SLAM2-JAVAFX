@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.StockController">
+<BorderPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.controller.main.StockController">
 
     <!-- Menu gauche -->
     <left>
@@ -17,6 +17,7 @@
             <Button onAction="#onValidRefus" prefWidth="104.0" text="Validation/Refus" />
          <Button onAction="#onFournisseur" prefWidth="104.0" text="Fournisseur" />
          <Button onAction="#onCommande" prefWidth="104.0" text="Commande" />
+         <Button onAction="#onProduitFournisseur" prefHeight="48.0" prefWidth="104.0" text="Produit Fournisseur" wrapText="true" />
         </VBox>
     </left>
 
