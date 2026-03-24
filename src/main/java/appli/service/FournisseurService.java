@@ -15,4 +15,16 @@ public class FournisseurService {
         fournisseurs = FXCollections.observableArrayList(fournisseurDAO.getAll());
         return fournisseurs;
     }
+
+    public void insert(Fournisseur fournisseur) {
+        GenericDAO<Fournisseur> fournisseurDAO = DaoFactory.getFournisseurDAO();
+        assert fournisseurDAO != null;
+        fournisseurDAO.insert(fournisseur);
+    }
+
+    public void delete(int id) {
+        GenericDAO<Fournisseur> fournisseurDAO = DaoFactory.getFournisseurDAO();
+        assert fournisseurDAO != null;
+        fournisseurDAO.delete(id);
+    }
 }
