@@ -28,13 +28,12 @@ public class TableDossierController implements Initializable {
         tableauDossierPriseEnCharge.setItems(dossierPriseEnCharges);
 
         String [][] colonnes = {
-                { "Date d'arrivé","dateTimeArrive" },
+                { "Date d'arrivé","dateArrive" },
                 { "Description","description" },
                 { "Gravité","gravite" },
-                /* LIGNES DU DESSOUS A MODIFIER AVEC LE NOM DE LA FICHE PATIENT ET PTET SOUS FORME DE LIEN POUR Y ACCEDER*/
-                { "Ref Patient","ref_patient" },
-                { "Créer par ","ref_createdBy" },
-                { "Traité ?","est_traite" },
+                { "Patient","patient" },
+                { "Créer par ","createdBy" },
+                { "Traité ?","estTraite" },
         };
 
         for ( int i = 0 ; i < colonnes.length ; i ++ ){

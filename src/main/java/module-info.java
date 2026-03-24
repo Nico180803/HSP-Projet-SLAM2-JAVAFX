@@ -5,6 +5,7 @@ module appli.hsp_slam_jfx {
     requires javafx.graphics;
     requires javafx.base;
     requires spring.security.crypto;
+    requires jakarta.mail;
 
 
     exports appli.main;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="appli.controller.main.MotDePasseOublieController"
+      spacing="10" alignment="CENTER" padding="20">
+
+    <Label text="Réinitialisation de mot de passe" style="-fx-font-size: 18px;"/>
+
+    <TextField fx:id="emailField" promptText="Entrez votre e-mail" prefWidth="250"/>
+
+    <Button text="Envoyer le code" onAction="#envoyerCode"/>
+
+    <Label fx:id="statusLabel" text="" style="-fx-text-fill: green;"/>
+
+    <PasswordField fx:id="codeField" promptText="Entrez le code reçu" prefWidth="250"/>
+
+    <Button text="Vérifier le code" onAction="#verifierCode"/>
+</VBox>

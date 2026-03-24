@@ -1,35 +1,38 @@
 package appli.dao.logs.jdbc;
 
+import appli.config.DatabaseConnection;
 import appli.model.logs.TableCible;
-import appli.utils.ConnexionBDD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TableCibleDAO {
 
-    private appli.utils.ConnexionBDD ConnexionBDD;
+    private final Connection db = DatabaseConnection.getMainConnexion();
+    private String sql;
 
-    public TableCible findByNom(String nom) {
-        String sql = "SELECT * FROM table_cible WHERE nom = ?";
+    private static final String TABLE = "table_cible";
+    private static final String NOM_TABLE = "nom_table";
+    private static final String DESCRIPTION = "description";
 
-        try (Connection cnx = ConnexionBDD.getConnection();
-             PreparedStatement ps = cnx.prepareStatement(sql)) {
+    public TableCible getById(int id) {
+        this.sql = "SELECT * FROM " + TABLE + " WHERE id = ?";
 
-            ps.setString(1, nom);
-            ResultSet rs = ps.executeQuery();
 
+        try (PreparedStatement statement = db.prepareStatement(this.sql)) {
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 return new TableCible(
                         rs.getInt("id"),
-                        rs.getString("nom"),
-                        rs.getString("description")
+                        rs.getString(NOM_TABLE),
+                        rs.getString(DESCRIPTION)
                 );
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la récupération de la table cible : " + e.getMessage());
         }
         return null;
     }
