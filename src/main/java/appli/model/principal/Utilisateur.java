@@ -12,7 +12,6 @@ public class Utilisateur {
     private Role role;
     private boolean isActive;
 
-    public Utilisateur(){}
 
     public Utilisateur(String nom, String prenom, String email, String mdp, Role role, boolean isActive) {
         this.nom = nom;
@@ -33,20 +32,10 @@ public class Utilisateur {
         this.isActive = isActive;
     }
 
-    public Utilisateur(String text, String text1, String text2, String text3, String roleUser, int i) {
-    }
-
     @Override
     public String toString() {
-        return "Utilisateur{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", email='" + email + '\'' +
-                ", mdp='" + mdp + '\'' +
-                ", role=" + role +
-                ", isActive=" + isActive +
-                '}';
+        return  nom + ' ' +
+                prenom;
     }
 
     public int getId() {

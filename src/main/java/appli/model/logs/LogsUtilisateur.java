@@ -15,7 +15,7 @@ public class LogsUtilisateur {
     private String details;
 
 
-    public LogsUtilisateur() {}
+
 
     public LogsUtilisateur(int id,  Utilisateur utilisateur, TypeAction typeAction,  TableCible tableCible, int refLigne, LocalDateTime dateAction, String details) {
         this.id = id;
@@ -56,46 +56,16 @@ public class LogsUtilisateur {
         return typeAction;
     }
 
-    public void setTypeAction(TypeAction typeAction) {
-        this.typeAction = typeAction;
-    }
-
-    public TableCible getTableCible() {
-        return tableCible;
-    }
-
-    public void setTableCible(TableCible tableCible) {
-        this.tableCible = tableCible;
-    }
-
-    public int getRefLigne() {
-        return refLigne;
-    }
-
-    public void setRefLigne(int refLigne) {
-        this.refLigne = refLigne;
-    }
-
     public LocalDateTime getDateAction() {
         return dateAction;
-    }
-
-    public void setDateAction(LocalDateTime dateAction) {
-        this.dateAction = dateAction;
     }
 
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
     public void setDescription(String s) {
 
-    }
-    public void setLogsUtilisateur(String s) {
     }
 
 }

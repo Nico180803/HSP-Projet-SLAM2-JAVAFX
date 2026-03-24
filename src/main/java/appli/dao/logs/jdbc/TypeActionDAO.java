@@ -1,33 +1,38 @@
 package appli.dao.logs.jdbc;
 
+import appli.config.DatabaseConnection;
 import appli.model.logs.TypeAction;
-import appli.utils.ConnexionBDD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TypeActionDAO {
 
-    public TypeAction findByAction(String action) {
-        String sql = "SELECT * FROM type_action WHERE action = ?";
+    private final Connection db = DatabaseConnection.getMainConnexion();
+    private String sql;
 
-        try (Connection cnx = ConnexionBDD.getConnection();
-             PreparedStatement ps = cnx.prepareStatement(sql)) {
+    private static final String TABLE = "type_action";
+    private static final String CODE = "code";
+    private static final String DESCRIPTION = "description";
 
-            ps.setString(1, action);
-            ResultSet rs = ps.executeQuery();
+    public TypeAction getById(int id) {
+        this.sql = "SELECT * FROM " + TABLE + " WHERE id = ?";
 
+
+        try (PreparedStatement statement = db.prepareStatement(this.sql)) {
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 return new TypeAction(
                         rs.getInt("id"),
-                        rs.getString("action"),
-                        rs.getString("description")
+                        rs.getString(CODE),
+                        rs.getString(DESCRIPTION)
                 );
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la récupération du type d'action : " + e.getMessage());
         }
         return null;
     }
