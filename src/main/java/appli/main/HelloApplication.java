@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class HelloApplication extends Application {
 
@@ -20,6 +19,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
+        mainStage.setMaximized(true);
         mainStage.show();
     }
 
