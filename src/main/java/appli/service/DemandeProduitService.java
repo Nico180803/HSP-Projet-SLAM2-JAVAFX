@@ -21,23 +21,15 @@ public class DemandeProduitService {
 
     public void acceptDemandeProduit(DemandeProduit demandeProduit) {
         GenericDAO<DemandeProduit> demandeProduitDAO = DaoFactory.getDemandeProduitDAO();
-        ProduitFournisseurDAO produitFournisseurDAO = DaoFactory.getProduitFournisseurDAO();
-        GenericDAO<Commande> commandeDAO = DaoFactory.getCommandeDAO();
         GenericDAO<Produit> produitDAO = DaoFactory.getProduitDAO();
         assert demandeProduitDAO != null;
-        assert produitFournisseurDAO != null;
-        assert commandeDAO != null;
         assert produitDAO != null;
-        Utilisateur utilisateur = SessionUtilisateur.getInstance().getUtilisateur();
         System.out.println(demandeProduit.getProduit().getId());
-        ProduitFournisseur moinsCher = produitFournisseurDAO.moinsCher(demandeProduit.getProduit().getId());
-        Commande commande = new Commande(utilisateur,moinsCher,demandeProduit.getQuantite(),(demandeProduit.getQuantite()* moinsCher.getPrix()));
-        commandeDAO.insert(commande);
         Statut statut = Statut.VALIDE;
         demandeProduit.setStatut(statut);
         demandeProduitDAO.update(demandeProduit);
         Produit produit = demandeProduit.getProduit();
-        produit.setQuantite(produit.getQuantite() + demandeProduit.getQuantite());
+        produit.setQuantite(produit.getQuantite() - demandeProduit.getQuantite());
         produitDAO.update(produit);
 
     }
