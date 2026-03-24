@@ -54,10 +54,6 @@ public class Utilisateur {
         return prenom;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -70,26 +66,12 @@ public class Utilisateur {
         return mdp;
     }
 
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
     public Role getRole() {
         return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public boolean isActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public void setId(int refUser) {
-    }
 }
