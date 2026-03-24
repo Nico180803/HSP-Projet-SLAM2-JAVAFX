@@ -1,7 +1,8 @@
 package appli.controller.medecin;
 
-import appli.model.principal.FichePatient;
+import appli.model.principal.Chambre;
 import appli.model.principal.Hospitalisation;
+import appli.service.ChambreService;
 import appli.service.HospitalisationService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ public class HospitalisationFormController implements Initializable {
     private TableView<Hospitalisation> hospitalisationTableView;
     private ObservableList<Hospitalisation> hospitalisations;
     private HospitalisationService hospitalisationService = new HospitalisationService();
+    private ChambreService chambreService = new ChambreService();
 
     public void initialize(URL location, ResourceBundle resources) {
         hospitalisations = hospitalisationService.findAll();
@@ -55,6 +57,11 @@ public class HospitalisationFormController implements Initializable {
                 btn.setOnAction(event -> {
                     Hospitalisation item = getTableView().getItems().get(getIndex());
                     hospitalisationService.delete(item.getId());
+
+                    Chambre chambre = item.getChambre();
+                    chambre.setEstOccupe(false);
+                    chambreService.update(chambre);
+
                     hospitalisations.remove(item);
                 });
             }

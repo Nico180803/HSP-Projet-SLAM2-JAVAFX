@@ -1,9 +1,8 @@
 package appli.controller.medecin;
 
+import appli.model.enums.Statut;
 import appli.model.principal.DemandeProduit;
-import appli.model.principal.Hospitalisation;
 import appli.service.DemandeService;
-import appli.service.HospitalisationService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -63,7 +62,16 @@ public class TableauDemandeStockController implements Initializable {
             @Override
             protected void updateItem(Void unused, boolean empty) {
                 super.updateItem(unused, empty);
-                setGraphic(empty ? null : btn);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    DemandeProduit item = getTableView().getItems().get(getIndex());
+                    if (item.getStatut() == Statut.VALIDE) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(btn);
+                    }
+                }
             }
         });
         tableauDemande.getColumns().add(colSupprimer);

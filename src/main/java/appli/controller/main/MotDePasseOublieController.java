@@ -1,5 +1,6 @@
 package appli.controller;
 
+import appli.controller.main.ChangerMotDePasseController;
 import appli.service.EmailService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -41,6 +41,10 @@ public class OrdonnanceNewController {
 
         Ordonnance ordonnance = new Ordonnance(dateTime, dossier);
         ordonnanceService.add(ordonnance);
+
+        dossier.setEstTraite(true);
+        dossierPriseEnChargeService.update(dossier);
+
         MainController.getInstance().refreshMain();
     }
 }

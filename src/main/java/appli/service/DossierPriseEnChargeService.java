@@ -18,6 +18,12 @@ public class DossierPriseEnChargeService {
         return  dossierPriseEnCharges;
     }
 
+    public void update(DossierPriseEnCharge dossierPriseEnCharge) {
+        GenericDAO<DossierPriseEnCharge> dossierPriseEnChargeDAO = DaoFactory.getDossierPriseEnChargeDAO();
+        assert dossierPriseEnChargeDAO != null;
+        dossierPriseEnChargeDAO.update(dossierPriseEnCharge);
+    }
+
     public void addDossier(DossierPriseEnCharge dossierPriseEnCharge) {
         GenericDAO<DossierPriseEnCharge> dossierPriseEnChargeDAO = DaoFactory.getDossierPriseEnChargeDAO();
 

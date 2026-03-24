@@ -5,6 +5,7 @@ import appli.factory.DaoFactory;
 import appli.model.principal.Chambre;
 import appli.model.principal.DossierPriseEnCharge;
 import appli.model.principal.Hospitalisation;
+import appli.service.ChambreService;
 import appli.service.DossierPriseEnChargeService;
 import appli.service.HospitalisationService;
 import javafx.event.ActionEvent;
@@ -22,11 +23,16 @@ public class HospitalisationNewController {
 
     private final DossierPriseEnChargeService dossierPriseEnChargeService = new DossierPriseEnChargeService();
     private final HospitalisationService hospitalisationService = new HospitalisationService();
+    private final ChambreService chambreService = new ChambreService();
 
     public void initialize() {
         refDossier.getItems().addAll(dossierPriseEnChargeService.findAll());
 
-        refChambre.getItems().addAll(DaoFactory.getChambreDAO().getAll());
+        for (Chambre chambre : DaoFactory.getChambreDAO().getAll()) {
+            if (!chambre.isEstOccupe()) {
+                refChambre.getItems().add(chambre);
+            }
+        }
     }
 
     public void onValiderFiche(ActionEvent actionEvent) {
@@ -43,6 +49,10 @@ public class HospitalisationNewController {
 
         Hospitalisation hospitalisation = new Hospitalisation(dossier, chambre, debut, fin);
         hospitalisationService.add(hospitalisation);
+
+        chambre.setEstOccupe(true);
+        chambreService.update(chambre);
+
         MainController.getInstance().refreshMain();
     }
 }
