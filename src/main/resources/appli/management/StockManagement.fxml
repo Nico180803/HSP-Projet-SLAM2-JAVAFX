@@ -12,7 +12,7 @@
     <!-- Menu gauche -->
     <left>
         <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #2c3e50;">
-         <Button fx:id="deconnexionButton" mnemonicParsing="false" onAction="#onDeconnexionButtonClick" text="Déconnexion" />
+            <Button fx:id="deconnexionButton" mnemonicParsing="false" onAction="#onDeconnexionButtonClick" text="Déconnexion" />
             <Button onAction="#onListeStock" text="Liste Stock" />
             <Button onAction="#onValidRefus" prefWidth="104.0" text="Validation/Refus" />
          <Button onAction="#onFournisseur" prefWidth="104.0" text="Fournisseur" />
