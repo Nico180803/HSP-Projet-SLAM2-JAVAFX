@@ -56,5 +56,19 @@ public class TableProduitController implements Initializable {
             tableauProduit.getColumns().add(maCol);
         }
         tableauProduit.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
+        tableauProduit.setRowFactory(tv -> new TableRow<Produit>() {
+            @Override
+            protected void updateItem(Produit item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setStyle("");
+                } else if (item.getQuantite() < 20) {
+                    setStyle("-fx-control-inner-background: #ff4444; -fx-control-inner-background-alt: #ff4444;");
+                } else {
+                    setStyle("");
+                }
+            }
+        });
     }
 }
