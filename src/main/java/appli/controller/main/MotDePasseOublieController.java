@@ -1,4 +1,4 @@
-package appli.controller;
+package appli.controller.main;
 
 import appli.controller.main.ChangerMotDePasseController;
 import appli.service.EmailService;

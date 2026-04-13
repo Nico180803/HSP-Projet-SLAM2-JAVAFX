@@ -81,7 +81,7 @@ public class LoginController {
     }
 
     public void onMdpOublieButtonClick() throws IOException {
-        HelloApplication.changeScene("ChangerMotDePasse.fxml");
+        HelloApplication.changeScene("MotDePasseOublie.fxml");
     }
 
     public void onConnexionButtonClick() throws IOException {
